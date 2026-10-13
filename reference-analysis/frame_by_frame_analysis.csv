@@ -1,0 +1,241 @@
+clip,frame,time_s,phase_visual_estimate,width,height,mean_pixel_abs_delta_0_255,percent_pixels_delta_over_12,dark_pixels_pct,lime_mask_pct,cyan_mask_pct,sample_file
+New_1,1,0.0,Ingestion and moving connector pulses,1280,720,0.0,0.0,91.5446,0.0016,0.8497,reference-analysis/New_1/frames/frame_0001.jpg
+New_1,2,0.125,Ingestion and moving connector pulses,1280,720,0.75638,0.3477,91.4991,0.0246,0.8524,reference-analysis/New_1/frames/frame_0002.jpg
+New_1,3,0.25,Ingestion and moving connector pulses,1280,720,1.846,3.663,91.2822,0.0671,0.8138,reference-analysis/New_1/frames/frame_0003.jpg
+New_1,4,0.375,Ingestion and moving connector pulses,1280,720,4.44228,7.3026,91.166,0.0849,0.8041,reference-analysis/New_1/frames/frame_0004.jpg
+New_1,5,0.5,Ingestion and moving connector pulses,1280,720,5.63653,8.7661,91.0447,0.1463,0.7857,reference-analysis/New_1/frames/frame_0005.jpg
+New_1,6,0.625,Ingestion and moving connector pulses,1280,720,6.76234,10.1688,91.0905,0.1731,0.8244,reference-analysis/New_1/frames/frame_0006.jpg
+New_1,7,0.75,Ingestion and moving connector pulses,1280,720,7.4642,10.9695,91.076,0.1285,0.818,reference-analysis/New_1/frames/frame_0007.jpg
+New_1,8,0.875,Ingestion and moving connector pulses,1280,720,8.48993,11.8152,91.017,0.0962,0.8036,reference-analysis/New_1/frames/frame_0008.jpg
+New_1,9,1.0,Ingestion and moving connector pulses,1280,720,9.27003,12.9238,90.9724,0.0883,0.7894,reference-analysis/New_1/frames/frame_0009.jpg
+New_1,10,1.125,Ingestion and moving connector pulses,1280,720,9.81849,13.5679,91.0252,0.088,0.8329,reference-analysis/New_1/frames/frame_0010.jpg
+New_1,11,1.25,Ingestion and moving connector pulses,1280,720,10.02132,14.1233,90.8839,0.1381,0.7917,reference-analysis/New_1/frames/frame_0011.jpg
+New_1,12,1.375,Ingestion and moving connector pulses,1280,720,10.5134,14.7339,90.8903,0.135,0.8052,reference-analysis/New_1/frames/frame_0012.jpg
+New_1,13,1.5,Ingestion and moving connector pulses,1280,720,10.60509,15.2212,90.8087,0.134,0.7996,reference-analysis/New_1/frames/frame_0013.jpg
+New_1,14,1.625,Ingestion and moving connector pulses,1280,720,10.74675,15.6494,90.8266,0.1933,0.7513,reference-analysis/New_1/frames/frame_0014.jpg
+New_1,15,1.75,Ingestion and moving connector pulses,1280,720,10.58879,15.6146,90.695,0.2403,0.7538,reference-analysis/New_1/frames/frame_0015.jpg
+New_1,16,1.875,Ingestion and moving connector pulses,1280,720,10.93944,16.0489,90.738,0.2324,0.7887,reference-analysis/New_1/frames/frame_0016.jpg
+New_1,17,2.0,Vertical scroll into token retrieval,1280,720,11.11995,16.556,91.2999,0.149,0.6761,reference-analysis/New_1/frames/frame_0017.jpg
+New_1,18,2.125,Vertical scroll into token retrieval,1280,720,10.24042,15.7209,92.3697,0.1239,0.4555,reference-analysis/New_1/frames/frame_0018.jpg
+New_1,19,2.25,Vertical scroll into token retrieval,1280,720,8.404,14.237,94.3812,0.1294,0.2422,reference-analysis/New_1/frames/frame_0019.jpg
+New_1,20,2.375,Vertical scroll into token retrieval,1280,720,7.54765,12.6918,96.2438,0.048,0.1016,reference-analysis/New_1/frames/frame_0020.jpg
+New_1,21,2.5,Vertical scroll into token retrieval,1280,720,6.30747,10.3247,96.5426,0.0317,0.0638,reference-analysis/New_1/frames/frame_0021.jpg
+New_1,22,2.625,Vertical scroll into token retrieval,1280,720,7.23131,11.811,94.2011,0.5735,0.1056,reference-analysis/New_1/frames/frame_0022.jpg
+New_1,23,2.75,Vertical scroll into token retrieval,1280,720,8.80576,14.0372,93.0575,1.3298,0.246,reference-analysis/New_1/frames/frame_0023.jpg
+New_1,24,2.875,Vertical scroll into token retrieval,1280,720,11.01856,15.4835,92.9486,1.2334,0.2261,reference-analysis/New_1/frames/frame_0024.jpg
+New_1,25,3.0,Token selection and context branches,1280,720,11.88243,16.1534,92.5914,1.2779,0.2925,reference-analysis/New_1/frames/frame_0025.jpg
+New_1,26,3.125,Token selection and context branches,1280,720,12.49598,16.7628,91.8447,1.2767,0.4117,reference-analysis/New_1/frames/frame_0026.jpg
+New_1,27,3.25,Token selection and context branches,1280,720,12.75001,17.6488,91.4422,1.341,0.5137,reference-analysis/New_1/frames/frame_0027.jpg
+New_1,28,3.375,Token selection and context branches,1280,720,13.07105,18.0621,91.3493,1.239,0.4592,reference-analysis/New_1/frames/frame_0028.jpg
+New_1,29,3.5,Token selection and context branches,1280,720,13.18269,17.9009,91.4576,1.1617,0.4634,reference-analysis/New_1/frames/frame_0029.jpg
+New_1,30,3.625,Token selection and context branches,1280,720,13.39254,18.3059,91.3985,1.1513,0.4655,reference-analysis/New_1/frames/frame_0030.jpg
+New_1,31,3.75,Token selection and context branches,1280,720,13.19402,18.4875,91.3733,1.1504,0.4491,reference-analysis/New_1/frames/frame_0031.jpg
+New_1,32,3.875,Token selection and context branches,1280,720,13.55895,18.5536,91.3243,1.2646,0.4495,reference-analysis/New_1/frames/frame_0032.jpg
+New_1,33,4.0,Neural plane activation and depth scene,1280,720,13.96007,18.6616,91.0602,1.5163,0.4946,reference-analysis/New_1/frames/frame_0033.jpg
+New_1,34,4.125,Neural plane activation and depth scene,1280,720,14.14195,18.6861,90.7079,1.842,0.498,reference-analysis/New_1/frames/frame_0034.jpg
+New_1,35,4.25,Neural plane activation and depth scene,1280,720,15.51904,20.3852,89.3138,2.3385,0.538,reference-analysis/New_1/frames/frame_0035.jpg
+New_1,36,4.375,Neural plane activation and depth scene,1280,720,15.74223,20.9574,88.8848,2.4371,0.5081,reference-analysis/New_1/frames/frame_0036.jpg
+New_1,37,4.5,Neural plane activation and depth scene,1280,720,16.47753,22.0567,87.9192,2.7312,0.5075,reference-analysis/New_1/frames/frame_0037.jpg
+New_1,38,4.625,Neural plane activation and depth scene,1280,720,16.57748,22.2637,87.5982,3.3303,0.5148,reference-analysis/New_1/frames/frame_0038.jpg
+New_1,39,4.75,Neural plane activation and depth scene,1280,720,16.07939,21.8522,87.2641,3.756,0.4921,reference-analysis/New_1/frames/frame_0039.jpg
+New_1,40,4.875,Neural plane activation and depth scene,1280,720,15.90261,22.1998,87.9768,3.4849,0.5146,reference-analysis/New_1/frames/frame_0040.jpg
+New_1,41,5.0,Neural plane activation and depth scene,1280,720,15.41809,22.0072,88.0473,3.3304,0.483,reference-analysis/New_1/frames/frame_0041.jpg
+New_1,42,5.125,Neural plane activation and depth scene,1280,720,15.25129,22.0683,88.5155,3.0162,0.4667,reference-analysis/New_1/frames/frame_0042.jpg
+New_1,43,5.25,Neural plane activation and depth scene,1280,720,13.8303,20.6544,89.366,2.2291,0.4973,reference-analysis/New_1/frames/frame_0043.jpg
+New_1,44,5.375,Neural plane activation and depth scene,1280,720,13.26872,20.7493,90.3271,1.253,0.5399,reference-analysis/New_1/frames/frame_0044.jpg
+New_1,45,5.5,Verification and REST diagram,1280,720,13.07221,20.855,90.2014,0.8687,0.5443,reference-analysis/New_1/frames/frame_0045.jpg
+New_1,46,5.625,Verification and REST diagram,1280,720,12.92164,20.9521,90.2254,0.8114,0.5847,reference-analysis/New_1/frames/frame_0046.jpg
+New_1,47,5.75,Verification and REST diagram,1280,720,12.68359,20.5949,90.3395,0.7704,0.5952,reference-analysis/New_1/frames/frame_0047.jpg
+New_1,48,5.875,Verification and REST diagram,1280,720,12.90473,20.4414,90.3968,0.7536,0.5946,reference-analysis/New_1/frames/frame_0048.jpg
+New_1,49,6.0,Verification and REST diagram,1280,720,12.97368,20.3209,90.2834,0.7441,0.6275,reference-analysis/New_1/frames/frame_0049.jpg
+New_1,50,6.125,Verification and REST diagram,1280,720,13.00362,20.2576,90.3056,0.7558,0.6549,reference-analysis/New_1/frames/frame_0050.jpg
+New_1,51,6.25,Verification and REST diagram,1280,720,12.94364,20.2611,90.0804,0.7628,0.6668,reference-analysis/New_1/frames/frame_0051.jpg
+New_1,52,6.375,Verification and REST diagram,1280,720,13.37576,20.9566,90.1318,0.7627,0.7166,reference-analysis/New_1/frames/frame_0052.jpg
+New_1,53,6.5,Verification and REST diagram,1280,720,13.51111,21.5659,89.9652,0.7721,0.6751,reference-analysis/New_1/frames/frame_0053.jpg
+New_1,54,6.625,Verification and REST diagram,1280,720,13.74782,22.1149,89.6758,0.7857,0.6979,reference-analysis/New_1/frames/frame_0054.jpg
+New_1,55,6.75,Verification and REST diagram,1280,720,13.62479,22.0244,89.4964,0.7926,0.6715,reference-analysis/New_1/frames/frame_0055.jpg
+New_1,56,6.875,Verification and REST diagram,1280,720,13.91137,22.2764,89.6755,0.8321,0.6835,reference-analysis/New_1/frames/frame_0056.jpg
+New_1,57,7.0,Verification and REST diagram,1280,720,13.82544,22.3099,89.6102,0.8531,0.6526,reference-analysis/New_1/frames/frame_0057.jpg
+New_1,58,7.125,Verification and REST diagram,1280,720,13.5964,22.2499,89.8117,0.9328,0.7002,reference-analysis/New_1/frames/frame_0058.jpg
+New_1,59,7.25,Verification and REST diagram,1280,720,12.92192,21.5826,90.2937,0.9081,0.6867,reference-analysis/New_1/frames/frame_0059.jpg
+New_1,60,7.375,Verification and REST diagram,1280,720,12.56708,21.3814,90.6875,0.966,0.6706,reference-analysis/New_1/frames/frame_0060.jpg
+New_1,61,7.5,Verification and REST diagram,1280,720,12.1947,20.9119,90.8974,0.9308,0.6458,reference-analysis/New_1/frames/frame_0061.jpg
+New_1,62,7.625,Verification and REST diagram,1280,720,11.6263,20.4601,91.0737,0.9227,0.6612,reference-analysis/New_1/frames/frame_0062.jpg
+New_1,63,7.75,Verification and REST diagram,1280,720,10.82258,19.4302,91.5748,0.8987,0.629,reference-analysis/New_1/frames/frame_0063.jpg
+New_1,64,7.875,Verification and REST diagram,1280,720,10.48591,18.42,92.2477,0.7547,0.5643,reference-analysis/New_1/frames/frame_0064.jpg
+New_1,65,8.0,Vertical scroll into contact,1280,720,9.75743,17.0513,92.8271,0.7367,0.4366,reference-analysis/New_1/frames/frame_0065.jpg
+New_1,66,8.125,Vertical scroll into contact,1280,720,9.93149,17.1079,93.5868,0.7472,0.4018,reference-analysis/New_1/frames/frame_0066.jpg
+New_1,67,8.25,Vertical scroll into contact,1280,720,9.61331,15.9092,94.0258,0.7293,0.3929,reference-analysis/New_1/frames/frame_0067.jpg
+New_1,68,8.375,Vertical scroll into contact,1280,720,10.60209,16.3656,95.0363,0.7193,0.3839,reference-analysis/New_1/frames/frame_0068.jpg
+New_1,69,8.5,Vertical scroll into contact,1280,720,10.67479,15.4336,95.0552,1.2127,0.3634,reference-analysis/New_1/frames/frame_0069.jpg
+New_1,70,8.625,Vertical scroll into contact,1280,720,9.9981,15.0643,95.0239,1.248,0.3548,reference-analysis/New_1/frames/frame_0070.jpg
+New_1,71,8.75,Vertical scroll into contact,1280,720,9.18157,13.6495,95.3876,0.9882,0.3573,reference-analysis/New_1/frames/frame_0071.jpg
+New_1,72,8.875,Vertical scroll into contact,1280,720,8.00008,11.8657,95.487,1.0211,0.3523,reference-analysis/New_1/frames/frame_0072.jpg
+New_1,73,9.0,Vertical scroll into contact,1280,720,6.51431,9.2815,95.4593,1.0556,0.3646,reference-analysis/New_1/frames/frame_0073.jpg
+New_1,74,9.125,Vertical scroll into contact,1280,720,5.05728,7.1341,95.4689,1.0078,0.3608,reference-analysis/New_1/frames/frame_0074.jpg
+New_1,75,9.25,Vertical scroll into contact,1280,720,2.9925,4.7561,95.4541,1.006,0.3617,reference-analysis/New_1/frames/frame_0075.jpg
+New_1,76,9.375,Vertical scroll into contact,1280,720,0.83717,0.6819,95.4832,1.0101,0.366,reference-analysis/New_1/frames/frame_0076.jpg
+New_1,77,9.5,Vertical scroll into contact,1280,720,0.56698,0.1794,95.4848,1.0117,0.3738,reference-analysis/New_1/frames/frame_0077.jpg
+New_1,78,9.625,Vertical scroll into contact,1280,720,0.5941,0.1656,95.48,1.0126,0.3736,reference-analysis/New_1/frames/frame_0078.jpg
+New_1,79,9.75,Vertical scroll into contact,1280,720,0.32894,0.1598,95.4946,1.0133,0.3749,reference-analysis/New_1/frames/frame_0079.jpg
+New_1,80,9.875,Vertical scroll into contact,1280,720,0.71994,0.2254,95.5808,1.0158,0.3777,reference-analysis/New_1/frames/frame_0080.jpg
+New_2,1,0.0,Assembled cyan core,1280,720,0.0,0.0,63.8441,1.3274,12.1762,reference-analysis/New_2/frames/frame_0001.jpg
+New_2,2,0.125,Assembled cyan core,1280,720,2.12116,3.7622,63.6908,1.3129,12.1809,reference-analysis/New_2/frames/frame_0002.jpg
+New_2,3,0.25,Assembled cyan core,1280,720,2.18068,3.6447,63.4791,1.333,12.2744,reference-analysis/New_2/frames/frame_0003.jpg
+New_2,4,0.375,Assembled cyan core,1280,720,2.54937,4.5806,63.3478,1.34,12.3554,reference-analysis/New_2/frames/frame_0004.jpg
+New_2,5,0.5,Assembled cyan core,1280,720,2.63694,4.763,63.1838,1.3456,12.4167,reference-analysis/New_2/frames/frame_0005.jpg
+New_2,6,0.625,Assembled cyan core,1280,720,2.84001,5.4028,63.1216,1.3481,12.5009,reference-analysis/New_2/frames/frame_0006.jpg
+New_2,7,0.75,Assembled cyan core,1280,720,2.89968,5.6458,62.8413,1.3404,12.557,reference-analysis/New_2/frames/frame_0007.jpg
+New_2,8,0.875,Assembled cyan core,1280,720,3.2534,6.392,62.7153,1.3388,12.7117,reference-analysis/New_2/frames/frame_0008.jpg
+New_2,9,1.0,Assembled cyan core,1280,720,3.37886,6.7715,62.4997,1.3427,12.7628,reference-analysis/New_2/frames/frame_0009.jpg
+New_2,10,1.125,Assembled cyan core,1280,720,3.60438,7.4039,62.4133,1.3512,12.9365,reference-analysis/New_2/frames/frame_0010.jpg
+New_2,11,1.25,Assembled cyan core,1280,720,3.8385,7.9838,62.1018,1.3776,13.0232,reference-analysis/New_2/frames/frame_0011.jpg
+New_2,12,1.375,Assembled cyan core,1280,720,4.12242,8.7992,61.8728,1.3662,13.2075,reference-analysis/New_2/frames/frame_0012.jpg
+New_2,13,1.5,Assembled cyan core,1280,720,4.35653,9.446,61.6051,1.3601,13.3086,reference-analysis/New_2/frames/frame_0013.jpg
+New_2,14,1.625,Assembled cyan core,1280,720,4.70389,10.2815,61.6225,1.3854,13.6132,reference-analysis/New_2/frames/frame_0014.jpg
+New_2,15,1.75,Assembled cyan core,1280,720,4.83544,10.8585,61.2467,1.3845,13.8239,reference-analysis/New_2/frames/frame_0015.jpg
+New_2,16,1.875,Assembled cyan core,1280,720,5.45907,12.4682,60.9803,1.3975,14.2267,reference-analysis/New_2/frames/frame_0016.jpg
+New_2,17,2.0,Shell and layer explosion,1280,720,7.68858,18.0515,60.7702,1.3817,14.8078,reference-analysis/New_2/frames/frame_0017.jpg
+New_2,18,2.125,Shell and layer explosion,1280,720,9.68095,22.8219,60.8443,1.3886,15.216,reference-analysis/New_2/frames/frame_0018.jpg
+New_2,19,2.25,Shell and layer explosion,1280,720,11.5694,26.3074,60.4389,1.4096,15.765,reference-analysis/New_2/frames/frame_0019.jpg
+New_2,20,2.375,Shell and layer explosion,1280,720,13.92731,30.0854,59.285,1.406,16.8381,reference-analysis/New_2/frames/frame_0020.jpg
+New_2,21,2.5,Shell and layer explosion,1280,720,16.40413,33.6577,57.4747,1.4263,18.9707,reference-analysis/New_2/frames/frame_0021.jpg
+New_2,22,2.625,Shell and layer explosion,1280,720,18.47264,36.8554,55.4656,1.4303,20.999,reference-analysis/New_2/frames/frame_0022.jpg
+New_2,23,2.75,Shell and layer explosion,1280,720,19.49415,38.7931,52.5255,1.4423,22.6196,reference-analysis/New_2/frames/frame_0023.jpg
+New_2,24,2.875,Shell and layer explosion,1280,720,20.756,40.7817,49.6044,1.4378,23.6356,reference-analysis/New_2/frames/frame_0024.jpg
+New_2,25,3.0,Shell and layer explosion,1280,720,22.0199,42.8325,46.9695,1.4619,24.0728,reference-analysis/New_2/frames/frame_0025.jpg
+New_2,26,3.125,Shell and layer explosion,1280,720,22.28069,43.2012,45.5977,1.4438,24.3799,reference-analysis/New_2/frames/frame_0026.jpg
+New_2,27,3.25,Shell and layer explosion,1280,720,22.31769,43.3566,43.7399,1.4448,25.1946,reference-analysis/New_2/frames/frame_0027.jpg
+New_2,28,3.375,Shell and layer explosion,1280,720,24.01791,46.4244,41.5962,1.4679,26.2222,reference-analysis/New_2/frames/frame_0028.jpg
+New_2,29,3.5,Shell and layer explosion,1280,720,25.23614,49.0366,39.7534,1.4767,26.5537,reference-analysis/New_2/frames/frame_0029.jpg
+New_2,30,3.625,Shell and layer explosion,1280,720,27.13124,51.9006,37.6859,1.5259,27.2431,reference-analysis/New_2/frames/frame_0030.jpg
+New_2,31,3.75,Shell and layer explosion,1280,720,29.1453,54.7495,36.0374,1.4535,27.4206,reference-analysis/New_2/frames/frame_0031.jpg
+New_2,32,3.875,Shell and layer explosion,1280,720,32.62423,60.0091,34.5483,1.365,28.2438,reference-analysis/New_2/frames/frame_0032.jpg
+New_2,33,4.0,Camera push through QKV interior,1280,720,34.63048,64.3564,32.2291,1.2072,29.5437,reference-analysis/New_2/frames/frame_0033.jpg
+New_2,34,4.125,Camera push through QKV interior,1280,720,37.0522,67.522,33.0388,1.0463,28.3485,reference-analysis/New_2/frames/frame_0034.jpg
+New_2,35,4.25,Camera push through QKV interior,1280,720,40.28164,69.9159,34.2069,1.4693,27.0355,reference-analysis/New_2/frames/frame_0035.jpg
+New_2,36,4.375,Camera push through QKV interior,1280,720,41.35568,73.073,28.7792,1.6302,31.1059,reference-analysis/New_2/frames/frame_0036.jpg
+New_2,37,4.5,Camera push through QKV interior,1280,720,40.3842,76.7616,24.2123,1.7599,33.9058,reference-analysis/New_2/frames/frame_0037.jpg
+New_2,38,4.625,Camera push through QKV interior,1280,720,41.59222,80.3295,23.1366,1.2479,39.2614,reference-analysis/New_2/frames/frame_0038.jpg
+New_2,39,4.75,Camera push through QKV interior,1280,720,42.05368,83.7205,25.9516,0.5503,39.3709,reference-analysis/New_2/frames/frame_0039.jpg
+New_2,40,4.875,Camera push through QKV interior,1280,720,41.51538,80.9769,27.6506,0.5528,40.6439,reference-analysis/New_2/frames/frame_0040.jpg
+New_2,41,5.0,Camera push through QKV interior,1280,720,43.51599,75.0585,25.784,0.5633,43.7633,reference-analysis/New_2/frames/frame_0041.jpg
+New_2,42,5.125,Camera push through QKV interior,1280,720,45.85453,70.1962,24.4435,0.5292,47.7374,reference-analysis/New_2/frames/frame_0042.jpg
+New_2,43,5.25,Camera push through QKV interior,1280,720,45.51598,69.2088,29.2603,0.5117,44.9672,reference-analysis/New_2/frames/frame_0043.jpg
+New_2,44,5.375,Camera push through QKV interior,1280,720,38.89638,64.8584,24.3815,0.5165,50.6305,reference-analysis/New_2/frames/frame_0044.jpg
+New_2,45,5.5,Source and verification corridor,1280,720,28.17377,56.4533,26.0749,0.5129,48.0574,reference-analysis/New_2/frames/frame_0045.jpg
+New_2,46,5.625,Source and verification corridor,1280,720,26.49879,51.6196,30.5485,0.5475,39.4038,reference-analysis/New_2/frames/frame_0046.jpg
+New_2,47,5.75,Source and verification corridor,1280,720,25.55909,48.9304,40.5509,0.5613,29.8864,reference-analysis/New_2/frames/frame_0047.jpg
+New_2,48,5.875,Source and verification corridor,1280,720,28.77378,50.4294,62.9387,0.5578,14.546,reference-analysis/New_2/frames/frame_0048.jpg
+New_2,49,6.0,Source and verification corridor,1280,720,19.18615,33.8354,70.9985,0.559,6.9211,reference-analysis/New_2/frames/frame_0049.jpg
+New_2,50,6.125,Source and verification corridor,1280,720,15.46528,27.333,70.313,0.5959,6.0562,reference-analysis/New_2/frames/frame_0050.jpg
+New_2,51,6.25,Source and verification corridor,1280,720,15.38472,29.4588,67.751,0.627,7.3435,reference-analysis/New_2/frames/frame_0051.jpg
+New_2,52,6.375,Source and verification corridor,1280,720,18.46802,34.9936,62.8428,0.7055,8.9574,reference-analysis/New_2/frames/frame_0052.jpg
+New_2,53,6.5,Source and verification corridor,1280,720,20.95584,39.9498,58.8303,0.8234,9.2633,reference-analysis/New_2/frames/frame_0053.jpg
+New_2,54,6.625,Source and verification corridor,1280,720,23.99112,44.9291,55.371,0.9181,9.1773,reference-analysis/New_2/frames/frame_0054.jpg
+New_2,55,6.75,Source and verification corridor,1280,720,26.23076,47.5793,51.3927,1.3258,9.1418,reference-analysis/New_2/frames/frame_0055.jpg
+New_2,56,6.875,Gate approach with amber rejection branch,1280,720,28.61188,52.2361,47.6115,2.4427,10.1247,reference-analysis/New_2/frames/frame_0056.jpg
+New_2,57,7.0,Gate approach with amber rejection branch,1280,720,32.04206,57.2595,47.1159,3.274,12.035,reference-analysis/New_2/frames/frame_0057.jpg
+New_2,58,7.125,Gate approach with amber rejection branch,1280,720,35.11,62.3657,44.0972,3.8796,14.8559,reference-analysis/New_2/frames/frame_0058.jpg
+New_2,59,7.25,Gate approach with amber rejection branch,1280,720,36.66964,59.0585,52.6914,3.0686,14.6683,reference-analysis/New_2/frames/frame_0059.jpg
+New_2,60,7.375,Gate approach with amber rejection branch,1280,720,32.82632,49.6298,59.1255,3.3554,6.7881,reference-analysis/New_2/frames/frame_0060.jpg
+New_2,61,7.5,Gate approach with amber rejection branch,1280,720,26.71324,44.2188,60.3076,2.7675,4.4822,reference-analysis/New_2/frames/frame_0061.jpg
+New_2,62,7.625,Gate approach with amber rejection branch,1280,720,28.60806,49.2201,53.343,3.5693,5.3279,reference-analysis/New_2/frames/frame_0062.jpg
+New_2,63,7.75,Gate approach with amber rejection branch,1280,720,31.89125,56.673,53.8983,3.0998,6.1455,reference-analysis/New_2/frames/frame_0063.jpg
+New_2,64,7.875,Gate approach with amber rejection branch,1280,720,32.40653,58.07,54.2969,3.648,6.7579,reference-analysis/New_2/frames/frame_0064.jpg
+New_2,65,8.0,Gate approach with amber rejection branch,1280,720,36.12419,61.2318,50.4843,4.5474,7.5128,reference-analysis/New_2/frames/frame_0065.jpg
+New_2,66,8.125,Gate approach with amber rejection branch,1280,720,38.39421,62.8577,59.7493,4.9664,7.7002,reference-analysis/New_2/frames/frame_0066.jpg
+New_2,67,8.25,Gate approach with amber rejection branch,1280,720,29.03174,59.2678,59.2403,2.8547,8.6054,reference-analysis/New_2/frames/frame_0067.jpg
+New_2,68,8.375,Crossfade into assembled contact core,1280,720,25.84005,59.9812,54.1523,0.4735,15.1436,reference-analysis/New_2/frames/frame_0068.jpg
+New_2,69,8.5,Crossfade into assembled contact core,1280,720,22.76704,61.0997,59.3426,0.4335,17.6297,reference-analysis/New_2/frames/frame_0069.jpg
+New_2,70,8.625,Crossfade into assembled contact core,1280,720,18.25996,49.3608,61.7722,0.4417,14.4465,reference-analysis/New_2/frames/frame_0070.jpg
+New_2,71,8.75,Crossfade into assembled contact core,1280,720,13.62435,28.6159,62.0702,0.4348,13.3889,reference-analysis/New_2/frames/frame_0071.jpg
+New_2,72,8.875,Crossfade into assembled contact core,1280,720,11.99149,24.3972,61.4459,1.4345,12.5596,reference-analysis/New_2/frames/frame_0072.jpg
+New_2,73,9.0,Crossfade into assembled contact core,1280,720,9.63568,19.129,61.7267,1.597,12.0017,reference-analysis/New_2/frames/frame_0073.jpg
+New_2,74,9.125,Crossfade into assembled contact core,1280,720,7.64545,14.9792,62.1761,1.649,11.8168,reference-analysis/New_2/frames/frame_0074.jpg
+New_2,75,9.25,Crossfade into assembled contact core,1280,720,6.50352,12.0063,62.3812,1.6034,11.6019,reference-analysis/New_2/frames/frame_0075.jpg
+New_2,76,9.375,Crossfade into assembled contact core,1280,720,5.8284,10.6518,62.721,1.5973,11.4857,reference-analysis/New_2/frames/frame_0076.jpg
+New_2,77,9.5,Crossfade into assembled contact core,1280,720,5.05529,8.9992,62.9014,1.5922,11.3142,reference-analysis/New_2/frames/frame_0077.jpg
+New_2,78,9.625,Crossfade into assembled contact core,1280,720,4.62838,7.9959,63.2631,1.5688,11.3752,reference-analysis/New_2/frames/frame_0078.jpg
+New_2,79,9.75,Crossfade into assembled contact core,1280,720,4.002,6.8379,63.3079,1.5556,11.2441,reference-analysis/New_2/frames/frame_0079.jpg
+New_2,80,9.875,Crossfade into assembled contact core,1280,720,3.82412,6.1483,63.3751,1.5538,11.1643,reference-analysis/New_2/frames/frame_0080.jpg
+New_3,1,0.0,Assembled core with outward circuit traces,1280,720,0.0,0.0,68.3198,1.3238,7.7401,reference-analysis/New_3/frames/frame_0001.jpg
+New_3,2,0.125,Assembled core with outward circuit traces,1280,720,2.15389,3.7715,68.1982,1.302,7.7844,reference-analysis/New_3/frames/frame_0002.jpg
+New_3,3,0.25,Assembled core with outward circuit traces,1280,720,2.34633,4.1976,67.857,1.3082,7.9333,reference-analysis/New_3/frames/frame_0003.jpg
+New_3,4,0.375,Assembled core with outward circuit traces,1280,720,3.27976,6.4647,66.843,1.3273,8.7989,reference-analysis/New_3/frames/frame_0004.jpg
+New_3,5,0.5,Assembled core with outward circuit traces,1280,720,3.64406,7.6538,65.5512,1.337,10.1972,reference-analysis/New_3/frames/frame_0005.jpg
+New_3,6,0.625,Assembled core with outward circuit traces,1280,720,3.68936,7.9721,64.458,1.3422,11.7423,reference-analysis/New_3/frames/frame_0006.jpg
+New_3,7,0.75,Assembled core with outward circuit traces,1280,720,3.90272,8.1239,63.6658,1.3321,12.5609,reference-analysis/New_3/frames/frame_0007.jpg
+New_3,8,0.875,Assembled core with outward circuit traces,1280,720,4.32538,8.9864,63.2745,1.3346,13.1224,reference-analysis/New_3/frames/frame_0008.jpg
+New_3,9,1.0,Assembled core with outward circuit traces,1280,720,4.57067,9.505,62.9039,1.3384,13.5001,reference-analysis/New_3/frames/frame_0009.jpg
+New_3,10,1.125,Assembled core with outward circuit traces,1280,720,4.9732,10.2323,62.6467,1.3505,14.1389,reference-analysis/New_3/frames/frame_0010.jpg
+New_3,11,1.25,Assembled core with outward circuit traces,1280,720,5.49096,11.0794,62.1413,1.377,14.4194,reference-analysis/New_3/frames/frame_0011.jpg
+New_3,12,1.375,Assembled core with outward circuit traces,1280,720,6.02907,12.2032,61.7076,1.3544,14.7844,reference-analysis/New_3/frames/frame_0012.jpg
+New_3,13,1.5,Assembled core with outward circuit traces,1280,720,6.45518,12.8332,61.2248,1.3632,15.1331,reference-analysis/New_3/frames/frame_0013.jpg
+New_3,14,1.625,Assembled core with outward circuit traces,1280,720,7.03515,14.0136,61.0038,1.374,15.451,reference-analysis/New_3/frames/frame_0014.jpg
+New_3,15,1.75,Assembled core with outward circuit traces,1280,720,7.48447,14.9213,60.5857,1.375,15.6743,reference-analysis/New_3/frames/frame_0015.jpg
+New_3,16,1.875,Assembled core with outward circuit traces,1280,720,8.55834,16.9118,60.3866,1.3804,15.9189,reference-analysis/New_3/frames/frame_0016.jpg
+New_3,17,2.0,Shell and layer explosion with circuit detail,1280,720,11.3921,23.8043,59.9153,1.3637,16.9788,reference-analysis/New_3/frames/frame_0017.jpg
+New_3,18,2.125,Shell and layer explosion with circuit detail,1280,720,12.83434,26.8906,59.7378,1.3987,17.5238,reference-analysis/New_3/frames/frame_0018.jpg
+New_3,19,2.25,Shell and layer explosion with circuit detail,1280,720,14.33339,29.6133,58.6516,1.4277,18.1459,reference-analysis/New_3/frames/frame_0019.jpg
+New_3,20,2.375,Shell and layer explosion with circuit detail,1280,720,16.48103,33.3689,57.4893,1.4413,18.4166,reference-analysis/New_3/frames/frame_0020.jpg
+New_3,21,2.5,Shell and layer explosion with circuit detail,1280,720,18.41122,36.7534,55.9833,1.4587,19.4523,reference-analysis/New_3/frames/frame_0021.jpg
+New_3,22,2.625,Shell and layer explosion with circuit detail,1280,720,19.72542,39.7767,54.9459,1.4918,20.7682,reference-analysis/New_3/frames/frame_0022.jpg
+New_3,23,2.75,Shell and layer explosion with circuit detail,1280,720,19.87166,40.6929,52.8911,1.5217,21.7284,reference-analysis/New_3/frames/frame_0023.jpg
+New_3,24,2.875,Shell and layer explosion with circuit detail,1280,720,20.9593,42.8998,50.8786,1.5122,22.1443,reference-analysis/New_3/frames/frame_0024.jpg
+New_3,25,3.0,Shell and layer explosion with circuit detail,1280,720,21.4766,44.1464,49.1318,1.525,22.1171,reference-analysis/New_3/frames/frame_0025.jpg
+New_3,26,3.125,Shell and layer explosion with circuit detail,1280,720,21.41892,44.4363,48.2848,1.508,22.2767,reference-analysis/New_3/frames/frame_0026.jpg
+New_3,27,3.25,Shell and layer explosion with circuit detail,1280,720,22.11329,45.6724,46.3434,1.3835,23.0913,reference-analysis/New_3/frames/frame_0027.jpg
+New_3,28,3.375,Shell and layer explosion with circuit detail,1280,720,23.70894,48.468,44.7594,1.2958,23.3949,reference-analysis/New_3/frames/frame_0028.jpg
+New_3,29,3.5,Shell and layer explosion with circuit detail,1280,720,25.42125,51.2956,42.8754,1.1736,23.0932,reference-analysis/New_3/frames/frame_0029.jpg
+New_3,30,3.625,Shell and layer explosion with circuit detail,1280,720,27.68979,54.6251,41.1891,1.0576,23.344,reference-analysis/New_3/frames/frame_0030.jpg
+New_3,31,3.75,Shell and layer explosion with circuit detail,1280,720,30.07133,57.5613,39.1943,0.8836,23.1264,reference-analysis/New_3/frames/frame_0031.jpg
+New_3,32,3.875,Shell and layer explosion with circuit detail,1280,720,33.27495,61.8353,38.3944,0.874,22.9887,reference-analysis/New_3/frames/frame_0032.jpg
+New_3,33,4.0,Camera push through circuit interior,1280,720,34.25522,65.1162,36.337,1.0014,23.1263,reference-analysis/New_3/frames/frame_0033.jpg
+New_3,34,4.125,Camera push through circuit interior,1280,720,36.14818,67.061,36.5954,1.4711,21.5322,reference-analysis/New_3/frames/frame_0034.jpg
+New_3,35,4.25,Camera push through circuit interior,1280,720,38.32479,69.7038,36.0056,1.8988,22.4197,reference-analysis/New_3/frames/frame_0035.jpg
+New_3,36,4.375,Camera push through circuit interior,1280,720,39.24731,71.4578,30.1739,1.9725,26.7502,reference-analysis/New_3/frames/frame_0036.jpg
+New_3,37,4.5,Camera push through circuit interior,1280,720,41.56398,77.1135,24.2745,2.0953,30.4219,reference-analysis/New_3/frames/frame_0037.jpg
+New_3,38,4.625,Camera push through circuit interior,1280,720,41.64541,78.4488,23.482,1.75,36.4797,reference-analysis/New_3/frames/frame_0038.jpg
+New_3,39,4.75,Camera push through circuit interior,1280,720,43.5049,78.5636,23.1682,1.0401,38.4587,reference-analysis/New_3/frames/frame_0039.jpg
+New_3,40,4.875,Camera push through circuit interior,1280,720,44.94404,77.163,37.4013,0.966,29.3759,reference-analysis/New_3/frames/frame_0040.jpg
+New_3,41,5.0,Camera push through circuit interior,1280,720,34.28296,62.615,39.0909,1.0624,28.0076,reference-analysis/New_3/frames/frame_0041.jpg
+New_3,42,5.125,Camera push through circuit interior,1280,720,31.13376,58.4581,43.3919,1.0838,23.0539,reference-analysis/New_3/frames/frame_0042.jpg
+New_3,43,5.25,Camera push through circuit interior,1280,720,27.87834,54.0227,47.5029,2.2706,16.7612,reference-analysis/New_3/frames/frame_0043.jpg
+New_3,44,5.375,Camera push through circuit interior,1280,720,24.26987,48.8635,47.9924,2.088,17.8255,reference-analysis/New_3/frames/frame_0044.jpg
+New_3,45,5.5,Attention portal corridor,1280,720,25.3479,51.2377,46.1425,1.9375,21.0086,reference-analysis/New_3/frames/frame_0045.jpg
+New_3,46,5.625,Attention portal corridor,1280,720,24.66081,47.9753,47.9607,1.5575,22.6821,reference-analysis/New_3/frames/frame_0046.jpg
+New_3,47,5.75,Attention portal corridor,1280,720,18.60472,38.557,53.6125,1.3924,16.3271,reference-analysis/New_3/frames/frame_0047.jpg
+New_3,48,5.875,Attention portal corridor,1280,720,18.25826,36.6374,58.7131,1.0336,9.4741,reference-analysis/New_3/frames/frame_0048.jpg
+New_3,49,6.0,Attention portal corridor,1280,720,20.72701,36.3727,66.8384,1.0951,3.059,reference-analysis/New_3/frames/frame_0049.jpg
+New_3,50,6.125,Attention portal corridor,1280,720,15.90531,29.6736,66.5655,1.3183,2.5128,reference-analysis/New_3/frames/frame_0050.jpg
+New_3,51,6.25,Attention portal corridor,1280,720,14.84888,31.1942,62.9009,1.4791,2.9657,reference-analysis/New_3/frames/frame_0051.jpg
+New_3,52,6.375,Attention portal corridor,1280,720,17.54945,36.6487,58.1861,1.6206,3.6318,reference-analysis/New_3/frames/frame_0052.jpg
+New_3,53,6.5,Attention portal corridor,1280,720,21.17316,44.6138,52.7769,1.8938,4.3688,reference-analysis/New_3/frames/frame_0053.jpg
+New_3,54,6.625,Attention portal corridor,1280,720,25.25131,51.9681,47.6274,2.287,5.5514,reference-analysis/New_3/frames/frame_0054.jpg
+New_3,55,6.75,Attention portal corridor,1280,720,29.43554,56.3682,41.6485,3.0187,5.9345,reference-analysis/New_3/frames/frame_0055.jpg
+New_3,56,6.875,Verify portal and amber warning branch,1280,720,34.37003,61.4679,37.8929,4.1539,7.1717,reference-analysis/New_3/frames/frame_0056.jpg
+New_3,57,7.0,Verify portal and amber warning branch,1280,720,38.42404,65.1438,38.1209,4.5584,6.9243,reference-analysis/New_3/frames/frame_0057.jpg
+New_3,58,7.125,Verify portal and amber warning branch,1280,720,42.47118,68.6144,36.2779,6.8599,7.4657,reference-analysis/New_3/frames/frame_0058.jpg
+New_3,59,7.25,Verify portal and amber warning branch,1280,720,40.63065,64.3244,45.1583,4.7273,7.6839,reference-analysis/New_3/frames/frame_0059.jpg
+New_3,60,7.375,Verify portal and amber warning branch,1280,720,33.10035,53.6073,52.4238,4.2897,4.5104,reference-analysis/New_3/frames/frame_0060.jpg
+New_3,61,7.5,Verify portal and amber warning branch,1280,720,28.51391,50.1032,50.3163,4.2234,4.7556,reference-analysis/New_3/frames/frame_0061.jpg
+New_3,62,7.625,Verify portal and amber warning branch,1280,720,34.07112,57.2644,43.275,5.4563,5.6449,reference-analysis/New_3/frames/frame_0062.jpg
+New_3,63,7.75,Verify portal and amber warning branch,1280,720,36.62998,62.342,43.5624,5.4449,6.5277,reference-analysis/New_3/frames/frame_0063.jpg
+New_3,64,7.875,Verify portal and amber warning branch,1280,720,38.5904,62.9891,42.1669,7.8075,6.7613,reference-analysis/New_3/frames/frame_0064.jpg
+New_3,65,8.0,Verify portal and amber warning branch,1280,720,44.57456,66.9421,41.974,9.2591,7.5614,reference-analysis/New_3/frames/frame_0065.jpg
+New_3,66,8.125,Verify portal and amber warning branch,1280,720,43.9873,70.5919,54.137,6.3075,6.7351,reference-analysis/New_3/frames/frame_0066.jpg
+New_3,67,8.25,Verify portal and amber warning branch,1280,720,28.5924,62.1643,53.7183,3.326,4.1415,reference-analysis/New_3/frames/frame_0067.jpg
+New_3,68,8.375,Crossfade into assembled contact core,1280,720,23.22249,60.0755,57.5881,0.751,5.337,reference-analysis/New_3/frames/frame_0068.jpg
+New_3,69,8.5,Crossfade into assembled contact core,1280,720,21.35387,56.3928,65.9201,0.4297,8.77,reference-analysis/New_3/frames/frame_0069.jpg
+New_3,70,8.625,Crossfade into assembled contact core,1280,720,16.96376,39.0791,67.8021,0.4405,6.5569,reference-analysis/New_3/frames/frame_0070.jpg
+New_3,71,8.75,Crossfade into assembled contact core,1280,720,13.72285,26.7037,66.5703,0.4224,6.0629,reference-analysis/New_3/frames/frame_0071.jpg
+New_3,72,8.875,Crossfade into assembled contact core,1280,720,12.20216,22.8217,66.7611,1.5356,5.9313,reference-analysis/New_3/frames/frame_0072.jpg
+New_3,73,9.0,Crossfade into assembled contact core,1280,720,9.47692,17.8996,66.8523,1.6035,5.3663,reference-analysis/New_3/frames/frame_0073.jpg
+New_3,74,9.125,Crossfade into assembled contact core,1280,720,7.83686,14.7648,67.1467,1.6125,5.3759,reference-analysis/New_3/frames/frame_0074.jpg
+New_3,75,9.25,Crossfade into assembled contact core,1280,720,6.64851,12.0853,67.3107,1.5665,5.3353,reference-analysis/New_3/frames/frame_0075.jpg
+New_3,76,9.375,Crossfade into assembled contact core,1280,720,5.99127,11.0308,67.7079,1.5923,5.3194,reference-analysis/New_3/frames/frame_0076.jpg
+New_3,77,9.5,Crossfade into assembled contact core,1280,720,5.42344,9.6912,67.733,1.5607,5.2517,reference-analysis/New_3/frames/frame_0077.jpg
+New_3,78,9.625,Crossfade into assembled contact core,1280,720,4.88834,8.8224,67.913,1.5625,5.1373,reference-analysis/New_3/frames/frame_0078.jpg
+New_3,79,9.75,Crossfade into assembled contact core,1280,720,4.2321,7.6751,68.0195,1.5476,5.1833,reference-analysis/New_3/frames/frame_0079.jpg
+New_3,80,9.875,Crossfade into assembled contact core,1280,720,3.99873,6.943,68.1474,1.5547,5.182,reference-analysis/New_3/frames/frame_0080.jpg

@@ -1,0 +1,69 @@
+--- PAGE 1 ---
+Bhargav M
++917795036940 | bhargav.m23@iiits.in | linkedin.com/in/bhargav-ai
+github.com/bhargavm-iiits | bhargavm-portfolio.vercel.app
+Professional Summary
+B.Tech AI and Data Science student graduating in 2027, building AI-enabled full-stack applications: RAG pipelines,
+LangGraph workflows, LLM guardrails, and automated validation in Python, FastAPI, and React. Focused on
+grounded, auditable, and secure AI systems.
+Technical Skills
+Languages and Frameworks: Python, SQL, JavaScript/TypeScript, React, C#, FastAPI, REST APIs, Streamlit,
+Pandas, NumPy
+AI and LLM: LLMs and embeddings, retrieval-augmented generation (RAG), prompt engineering, Pydantic
+structured outputs, LangGraph, LangChain, ChromaDB, BM25, Gemini API, Anthropic SDK, LiveKit Agents (tool
+calling), PyTorch
+AI Quality and Governance: Guardrails, citation validation, prompt-injection testing, PII redaction (Presidio),
+human-in-the-loop review, audit logging, pytest, regression testing, CI quality gates
+Data, Cloud and DevOps: PostgreSQL, SQLite, SQLAlchemy, Git, GitHub Actions (CI), Docker, Docker
+Compose, Playwright, Linux, Vercel, Render, asyncio
+Projects
+FixProof | Verified AI Code Repair with Sandboxed Testing GitHub
+Python, FastAPI, React, Docker, Gemini API, BM25, pytest, Playwright, Vercel
+• Built a verification system for AI-generated bug fixes: a seven-stage pipeline (prepare, baseline, retrieve,
+propose, gate, verify, select) with BM25 retrieval and Gemini patch proposals, a FastAPI backend, and a
+React frontend on Vercel.
+• Enforced a nine-check ordered gate (scope, no test-file edits, no new imports, no dangerous calls) and ran
+candidates in a Docker sandbox (no network, read-only image, capped CPU/memory/PIDs); a fix is accepted
+only if the program’s own tests pass.
+• Added 437 pytest tests, Docker verifier tests, and Playwright E2E tests; built a 24-bug fixture set with a
+dev/holdout split and configuration hashing.
+ClaimBridge | AI Document Review with Grounded Generation and Guardrails GitHub
+Python, SQLite, Pydantic, Anthropic SDK, Gemini, BM25, PyMuPDF, Streamlit, pytest
+• Built an AI-native document-review workflow: PDF extraction with page-level provenance, deterministic
+reconciliation against synthetic claim JSON, and drafts blocked when evidence was missing or conflicting.
+• Implemented grounded generation with BM25 retrieval (payer/date filters) and Pydantic structured
+outputs through a switchable Anthropic/Gemini LLM layer with template fallback; enforced citation-ID
+validation, one repair attempt, and escalation.
+• Added guardrails and human-in-the-loop review: a prompt-injection test fixture, an append-only audit log
+in SQLite, evidence-preserving corrections, and pytest coverage of reconciliation, citations, and the injection case.
+Excel-to-App | Spreadsheet Processing and API Automation GitHub
+Python, FastAPI, React, TypeScript, PostgreSQL, SQLAlchemy, Gemini, Docker, pytest
+• Built a Python spreadsheet-to-API pipeline with FastAPI REST endpoints and a React/TypeScript
+web app, supporting 66 functions on a six-table PostgreSQL/SQLite schema with immutable versions and
+execution audit trails.
+• Added Gemini schema suggestions with invalid-reference checks and human approval; kept all numeric
+calculations deterministic.
+• Implemented automated validation against LibreOffice: 481/481 matching comparisons on a 37-case fixture
+benchmark; documented 73 pytest tests and packaged the application with Docker Compose.
+Experience
+CYMAX - BTP Internship Jan 2026 – Present
+Unity & XR Developer Intern Hyderabad, India
+• Developed a Unity 360-degree video playback system for VR headsets, integrating spherical rendering,
+headset/controller input, and frame-accurate playback controls.
+• Built a Python backend for secure VR streaming with authentication, rate limiting, and encrypted
+delivery, connected to a React and React Three Fiber playback client.
+• Implemented Argon2 password hashing, JWT sessions, and AES stream encryption; containerised the stack
+with Docker Compose and covered backend functionality with pytest.
+IIIT Sri City - Summer Internship May 2026 – Jul 2026
+XR & Simulation Intern Sri City, India
+• Implemented offline AR navigation over a 7.29 km route, combining GPS, visual-inertial odometry, and compass
+data through a Kalman filter, with A* routing over a waypoint graph.
+• Chained GeoJSON segments by endpoint proximity; identified a 1.17 km source-geometry gap and marked it
+as interpolated to distinguish estimated data from surveyed geometry.
+• Built and scaled 3D assets in Blender and animated them in Unreal Engine for an ISRO third launch-pad
+visualisation and simulation walkthrough.
+Education
+Indian Institute of Information Technology, Sri City Aug 2023 – May 2027
+B.Tech in Artificial Intelligence and Data Science
+BGS PU College, Sidlaghatta – Class XII: 92.3% Apr 2020 – May 2022
+BGS Public School – Class X: 97.6%

@@ -1,0 +1,56 @@
+--- PAGE 1 ---
+Bhargav M
++91 7795036940 | bhargav.m23@iiits.in | LinkedIn | GitHub
+Summary
+B.Tech Artificial Intelligence and Data Science student graduating in 2027, with projects in Python data-processing
+pipelines, SQL databases, document extraction, and data validation. Builds traceable workflows with structured
+records, REST APIs, and automated checks. Seeking a Data Engineering Intern role at Primenumbers
+Technologies.
+Work Experience
+CYMAX Jan–May 2026
+Unity Developer Intern
+• Built Python services and a React playback client for VR streaming, integrating authentication, token-controlled
+access, and encrypted video delivery.
+• Developed a Unity 360-degree video player for VR headsets with spherical rendering, headset/controller input,
+and playback controls.
+Indian Institute of Information Technology, Sri City May–Jul 2026
+XR and Simulation Intern
+• Developed the Alipiri–Tirumala AR Navigation app as part of a collaborative project with IIT Tirupati and
+Tirumala Tirupati Devasthanams (TTD).
+• Processed GeoJSON route segments and landmark coordinates; combined GPS with visual-inertial localization
+for offline walking guidance.
+• Developed a demo environment for ISRO’s third launch pad using Unreal Engine 5.
+Projects
+Excel-to-App | Spreadsheet Data Processing and APIs GitHub
+Python, SQL, FastAPI, PostgreSQL, SQLAlchemy, Pydantic, Docker, pytest
+• Built a pipeline to extract spreadsheet formulas, parse expressions, resolve dependencies, detect cycles, and
+evaluate calculations using a 66-function engine.
+• Stored immutable application versions and execution audit records; exposed REST APIs and validated results
+against LibreOffice, documenting 481/481 matching comparisons across 37 cases.
+ClaimBridge | Document Extraction and Reconciliation GitHub
+Python, SQLite, Pydantic, PyMuPDF, BM25, Anthropic SDK, Streamlit
+• Built a synthetic-claim review pipeline that extracts facts from PDFs with page-level provenance, reconciles them
+against JSON records, and retrieves policies by payer and effective date.
+• Retained original evidence and reviewer corrections in SQLite; added citation-ID checks, audit records, approval,
+and tests for conflicting facts and missing documents.
+StickerMe | Durable Jobs and Versioned Data GitHub
+Python, FastAPI, SQLAlchemy, SQLite, React.js, TypeScript
+• Built a background-job workflow for portrait-to-sticker generation, persisting jobs, engine attempts, output
+metadata, and saved revisions in SQLite.
+• Implemented job leases, cancellation and recovery, version comparison and restore, and HTTP/server-sent-event
+integration for progress updates and downloads.
+Alipiri AR Navigation | Geospatial Data Quality GitHub
+C#, Unity, GeoJSON, JSON, GPS, A* Pathfinding
+• Chained route segments by endpoint proximity, corrected segment direction, and validated landmark coordinates;
+flagged a 1.17 km source-data gap as interpolated guidance.
+• Used spatial indexing and reusable buffers for route queries and A* search; separated data access, navigation,
+and UI through interfaces and event-driven components.
+Technical Skills
+Programming and Analysis: Python, SQL, C#, Pandas, NumPy
+Databases and APIs: PostgreSQL, SQLite, SQLAlchemy, FastAPI, REST APIs, JSON, Pydantic
+Data Workflows: Spreadsheet parsing, PDF extraction, schema validation, reconciliation, audit trails
+Engineering Tools: Git, GitHub Actions, Docker, pytest, data structures, dependency graphs
+Education
+Indian Institute of Information Technology, Sri City 2023–2027 (expected)
+B.Tech in Artificial Intelligence and Data Science
+Class XII: 92.3% – BGS PU College, Sidlaghatta | Class X: 97.6% – BGS Public School

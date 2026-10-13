@@ -1,0 +1,762 @@
+[
+  {
+    "id": "M01",
+    "clip": "New_2",
+    "title": "Assembled core / idle",
+    "board": "reference-analysis/motion-boards/M01-New_2.jpg",
+    "frames": [
+      {
+        "frame": 1,
+        "time_s": 0.0,
+        "path": "reference-analysis/New_2/frames/frame_0001.jpg"
+      },
+      {
+        "frame": 7,
+        "time_s": 0.75,
+        "path": "reference-analysis/New_2/frames/frame_0007.jpg"
+      },
+      {
+        "frame": 13,
+        "time_s": 1.5,
+        "path": "reference-analysis/New_2/frames/frame_0013.jpg"
+      },
+      {
+        "frame": 17,
+        "time_s": 2.0,
+        "path": "reference-analysis/New_2/frames/frame_0017.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M01-New_2-f0001.png",
+      "reference-analysis/detail-crops/M01-New_2-f0017.png"
+    ],
+    "crop_xyxy": [
+      490,
+      140,
+      1000,
+      590
+    ]
+  },
+  {
+    "id": "M02",
+    "clip": "New_3",
+    "title": "Circuit propagation",
+    "board": "reference-analysis/motion-boards/M02-New_3.jpg",
+    "frames": [
+      {
+        "frame": 1,
+        "time_s": 0.0,
+        "path": "reference-analysis/New_3/frames/frame_0001.jpg"
+      },
+      {
+        "frame": 5,
+        "time_s": 0.5,
+        "path": "reference-analysis/New_3/frames/frame_0005.jpg"
+      },
+      {
+        "frame": 9,
+        "time_s": 1.0,
+        "path": "reference-analysis/New_3/frames/frame_0009.jpg"
+      },
+      {
+        "frame": 13,
+        "time_s": 1.5,
+        "path": "reference-analysis/New_3/frames/frame_0013.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M02-New_3-f0001.png",
+      "reference-analysis/detail-crops/M02-New_3-f0013.png"
+    ],
+    "crop_xyxy": [
+      425,
+      350,
+      1120,
+      690
+    ]
+  },
+  {
+    "id": "M03",
+    "clip": "New_2",
+    "title": "Shell separation",
+    "board": "reference-analysis/motion-boards/M03-New_2.jpg",
+    "frames": [
+      {
+        "frame": 17,
+        "time_s": 2.0,
+        "path": "reference-analysis/New_2/frames/frame_0017.jpg"
+      },
+      {
+        "frame": 19,
+        "time_s": 2.25,
+        "path": "reference-analysis/New_2/frames/frame_0019.jpg"
+      },
+      {
+        "frame": 22,
+        "time_s": 2.625,
+        "path": "reference-analysis/New_2/frames/frame_0022.jpg"
+      },
+      {
+        "frame": 25,
+        "time_s": 3.0,
+        "path": "reference-analysis/New_2/frames/frame_0025.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M03-New_2-f0017.png",
+      "reference-analysis/detail-crops/M03-New_2-f0025.png"
+    ],
+    "crop_xyxy": [
+      420,
+      100,
+      1120,
+      670
+    ]
+  },
+  {
+    "id": "M04",
+    "clip": "New_3",
+    "title": "Vertical exploded layers",
+    "board": "reference-analysis/motion-boards/M04-New_3.jpg",
+    "frames": [
+      {
+        "frame": 18,
+        "time_s": 2.125,
+        "path": "reference-analysis/New_3/frames/frame_0018.jpg"
+      },
+      {
+        "frame": 22,
+        "time_s": 2.625,
+        "path": "reference-analysis/New_3/frames/frame_0022.jpg"
+      },
+      {
+        "frame": 27,
+        "time_s": 3.25,
+        "path": "reference-analysis/New_3/frames/frame_0027.jpg"
+      },
+      {
+        "frame": 31,
+        "time_s": 3.75,
+        "path": "reference-analysis/New_3/frames/frame_0031.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M04-New_3-f0018.png",
+      "reference-analysis/detail-crops/M04-New_3-f0031.png"
+    ],
+    "crop_xyxy": [
+      410,
+      70,
+      1150,
+      690
+    ]
+  },
+  {
+    "id": "M05",
+    "clip": "New_2",
+    "title": "Camera push-in / Q K V",
+    "board": "reference-analysis/motion-boards/M05-New_2.jpg",
+    "frames": [
+      {
+        "frame": 25,
+        "time_s": 3.0,
+        "path": "reference-analysis/New_2/frames/frame_0025.jpg"
+      },
+      {
+        "frame": 29,
+        "time_s": 3.5,
+        "path": "reference-analysis/New_2/frames/frame_0029.jpg"
+      },
+      {
+        "frame": 33,
+        "time_s": 4.0,
+        "path": "reference-analysis/New_2/frames/frame_0033.jpg"
+      },
+      {
+        "frame": 37,
+        "time_s": 4.5,
+        "path": "reference-analysis/New_2/frames/frame_0037.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M05-New_2-f0025.png",
+      "reference-analysis/detail-crops/M05-New_2-f0037.png"
+    ],
+    "crop_xyxy": [
+      570,
+      150,
+      1080,
+      660
+    ]
+  },
+  {
+    "id": "M06",
+    "clip": "New_3",
+    "title": "Enter the data corridor",
+    "board": "reference-analysis/motion-boards/M06-New_3.jpg",
+    "frames": [
+      {
+        "frame": 34,
+        "time_s": 4.125,
+        "path": "reference-analysis/New_3/frames/frame_0034.jpg"
+      },
+      {
+        "frame": 38,
+        "time_s": 4.625,
+        "path": "reference-analysis/New_3/frames/frame_0038.jpg"
+      },
+      {
+        "frame": 42,
+        "time_s": 5.125,
+        "path": "reference-analysis/New_3/frames/frame_0042.jpg"
+      },
+      {
+        "frame": 46,
+        "time_s": 5.625,
+        "path": "reference-analysis/New_3/frames/frame_0046.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M06-New_3-f0034.png",
+      "reference-analysis/detail-crops/M06-New_3-f0046.png"
+    ],
+    "crop_xyxy": [
+      480,
+      70,
+      1080,
+      690
+    ]
+  },
+  {
+    "id": "M07",
+    "clip": "New_2",
+    "title": "Floating evidence / parallax",
+    "board": "reference-analysis/motion-boards/M07-New_2.jpg",
+    "frames": [
+      {
+        "frame": 41,
+        "time_s": 5.0,
+        "path": "reference-analysis/New_2/frames/frame_0041.jpg"
+      },
+      {
+        "frame": 45,
+        "time_s": 5.5,
+        "path": "reference-analysis/New_2/frames/frame_0045.jpg"
+      },
+      {
+        "frame": 49,
+        "time_s": 6.0,
+        "path": "reference-analysis/New_2/frames/frame_0049.jpg"
+      },
+      {
+        "frame": 53,
+        "time_s": 6.5,
+        "path": "reference-analysis/New_2/frames/frame_0053.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M07-New_2-f0041.png",
+      "reference-analysis/detail-crops/M07-New_2-f0053.png"
+    ],
+    "crop_xyxy": [
+      210,
+      90,
+      1160,
+      650
+    ]
+  },
+  {
+    "id": "M08",
+    "clip": "New_3",
+    "title": "Attention gate / forward travel",
+    "board": "reference-analysis/motion-boards/M08-New_3.jpg",
+    "frames": [
+      {
+        "frame": 49,
+        "time_s": 6.0,
+        "path": "reference-analysis/New_3/frames/frame_0049.jpg"
+      },
+      {
+        "frame": 53,
+        "time_s": 6.5,
+        "path": "reference-analysis/New_3/frames/frame_0053.jpg"
+      },
+      {
+        "frame": 57,
+        "time_s": 7.0,
+        "path": "reference-analysis/New_3/frames/frame_0057.jpg"
+      },
+      {
+        "frame": 61,
+        "time_s": 7.5,
+        "path": "reference-analysis/New_3/frames/frame_0061.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M08-New_3-f0049.png",
+      "reference-analysis/detail-crops/M08-New_3-f0061.png"
+    ],
+    "crop_xyxy": [
+      300,
+      115,
+      1000,
+      660
+    ]
+  },
+  {
+    "id": "M09",
+    "clip": "New_2",
+    "title": "Verify gate / amber branch",
+    "board": "reference-analysis/motion-boards/M09-New_2.jpg",
+    "frames": [
+      {
+        "frame": 53,
+        "time_s": 6.5,
+        "path": "reference-analysis/New_2/frames/frame_0053.jpg"
+      },
+      {
+        "frame": 57,
+        "time_s": 7.0,
+        "path": "reference-analysis/New_2/frames/frame_0057.jpg"
+      },
+      {
+        "frame": 61,
+        "time_s": 7.5,
+        "path": "reference-analysis/New_2/frames/frame_0061.jpg"
+      },
+      {
+        "frame": 65,
+        "time_s": 8.0,
+        "path": "reference-analysis/New_2/frames/frame_0065.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M09-New_2-f0053.png",
+      "reference-analysis/detail-crops/M09-New_2-f0065.png"
+    ],
+    "crop_xyxy": [
+      350,
+      170,
+      1230,
+      690
+    ]
+  },
+  {
+    "id": "M10",
+    "clip": "New_3",
+    "title": "Dissolve and core reassembly",
+    "board": "reference-analysis/motion-boards/M10-New_3.jpg",
+    "frames": [
+      {
+        "frame": 63,
+        "time_s": 7.75,
+        "path": "reference-analysis/New_3/frames/frame_0063.jpg"
+      },
+      {
+        "frame": 67,
+        "time_s": 8.25,
+        "path": "reference-analysis/New_3/frames/frame_0067.jpg"
+      },
+      {
+        "frame": 70,
+        "time_s": 8.625,
+        "path": "reference-analysis/New_3/frames/frame_0070.jpg"
+      },
+      {
+        "frame": 73,
+        "time_s": 9.0,
+        "path": "reference-analysis/New_3/frames/frame_0073.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M10-New_3-f0063.png",
+      "reference-analysis/detail-crops/M10-New_3-f0073.png"
+    ],
+    "crop_xyxy": [
+      400,
+      130,
+      1150,
+      690
+    ]
+  },
+  {
+    "id": "M11",
+    "clip": "New_2",
+    "title": "Contact ending / REST panel",
+    "board": "reference-analysis/motion-boards/M11-New_2.jpg",
+    "frames": [
+      {
+        "frame": 70,
+        "time_s": 8.625,
+        "path": "reference-analysis/New_2/frames/frame_0070.jpg"
+      },
+      {
+        "frame": 73,
+        "time_s": 9.0,
+        "path": "reference-analysis/New_2/frames/frame_0073.jpg"
+      },
+      {
+        "frame": 76,
+        "time_s": 9.375,
+        "path": "reference-analysis/New_2/frames/frame_0076.jpg"
+      },
+      {
+        "frame": 80,
+        "time_s": 9.875,
+        "path": "reference-analysis/New_2/frames/frame_0080.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M11-New_2-f0070.png",
+      "reference-analysis/detail-crops/M11-New_2-f0080.png"
+    ],
+    "crop_xyxy": [
+      690,
+      280,
+      1200,
+      590
+    ]
+  },
+  {
+    "id": "M12",
+    "clip": "New_1",
+    "title": "Ingestion / waveform signal",
+    "board": "reference-analysis/motion-boards/M12-New_1.jpg",
+    "frames": [
+      {
+        "frame": 1,
+        "time_s": 0.0,
+        "path": "reference-analysis/New_1/frames/frame_0001.jpg"
+      },
+      {
+        "frame": 5,
+        "time_s": 0.5,
+        "path": "reference-analysis/New_1/frames/frame_0005.jpg"
+      },
+      {
+        "frame": 9,
+        "time_s": 1.0,
+        "path": "reference-analysis/New_1/frames/frame_0009.jpg"
+      },
+      {
+        "frame": 13,
+        "time_s": 1.5,
+        "path": "reference-analysis/New_1/frames/frame_0013.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M12-New_1-f0001.png",
+      "reference-analysis/detail-crops/M12-New_1-f0013.png"
+    ],
+    "crop_xyxy": [
+      285,
+      255,
+      925,
+      670
+    ]
+  },
+  {
+    "id": "M13",
+    "clip": "New_1",
+    "title": "First vertical scroll transition",
+    "board": "reference-analysis/motion-boards/M13-New_1.jpg",
+    "frames": [
+      {
+        "frame": 14,
+        "time_s": 1.625,
+        "path": "reference-analysis/New_1/frames/frame_0014.jpg"
+      },
+      {
+        "frame": 18,
+        "time_s": 2.125,
+        "path": "reference-analysis/New_1/frames/frame_0018.jpg"
+      },
+      {
+        "frame": 21,
+        "time_s": 2.5,
+        "path": "reference-analysis/New_1/frames/frame_0021.jpg"
+      },
+      {
+        "frame": 24,
+        "time_s": 2.875,
+        "path": "reference-analysis/New_1/frames/frame_0024.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M13-New_1-f0014.png",
+      "reference-analysis/detail-crops/M13-New_1-f0024.png"
+    ],
+    "crop_xyxy": [
+      120,
+      100,
+      1170,
+      710
+    ]
+  },
+  {
+    "id": "M14",
+    "clip": "New_1",
+    "title": "Token selection / retrieval branches",
+    "board": "reference-analysis/motion-boards/M14-New_1.jpg",
+    "frames": [
+      {
+        "frame": 24,
+        "time_s": 2.875,
+        "path": "reference-analysis/New_1/frames/frame_0024.jpg"
+      },
+      {
+        "frame": 27,
+        "time_s": 3.25,
+        "path": "reference-analysis/New_1/frames/frame_0027.jpg"
+      },
+      {
+        "frame": 30,
+        "time_s": 3.625,
+        "path": "reference-analysis/New_1/frames/frame_0030.jpg"
+      },
+      {
+        "frame": 33,
+        "time_s": 4.0,
+        "path": "reference-analysis/New_1/frames/frame_0033.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M14-New_1-f0024.png",
+      "reference-analysis/detail-crops/M14-New_1-f0033.png"
+    ],
+    "crop_xyxy": [
+      415,
+      95,
+      1140,
+      450
+    ]
+  },
+  {
+    "id": "M15",
+    "clip": "New_1",
+    "title": "Neural planes / depth parallax",
+    "board": "reference-analysis/motion-boards/M15-New_1.jpg",
+    "frames": [
+      {
+        "frame": 32,
+        "time_s": 3.875,
+        "path": "reference-analysis/New_1/frames/frame_0032.jpg"
+      },
+      {
+        "frame": 35,
+        "time_s": 4.25,
+        "path": "reference-analysis/New_1/frames/frame_0035.jpg"
+      },
+      {
+        "frame": 38,
+        "time_s": 4.625,
+        "path": "reference-analysis/New_1/frames/frame_0038.jpg"
+      },
+      {
+        "frame": 41,
+        "time_s": 5.0,
+        "path": "reference-analysis/New_1/frames/frame_0041.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M15-New_1-f0032.png",
+      "reference-analysis/detail-crops/M15-New_1-f0041.png"
+    ],
+    "crop_xyxy": [
+      530,
+      310,
+      1170,
+      690
+    ]
+  },
+  {
+    "id": "M16",
+    "clip": "New_1",
+    "title": "Active plane scan / node illumination",
+    "board": "reference-analysis/motion-boards/M16-New_1.jpg",
+    "frames": [
+      {
+        "frame": 35,
+        "time_s": 4.25,
+        "path": "reference-analysis/New_1/frames/frame_0035.jpg"
+      },
+      {
+        "frame": 38,
+        "time_s": 4.625,
+        "path": "reference-analysis/New_1/frames/frame_0038.jpg"
+      },
+      {
+        "frame": 41,
+        "time_s": 5.0,
+        "path": "reference-analysis/New_1/frames/frame_0041.jpg"
+      },
+      {
+        "frame": 44,
+        "time_s": 5.375,
+        "path": "reference-analysis/New_1/frames/frame_0044.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M16-New_1-f0035.png",
+      "reference-analysis/detail-crops/M16-New_1-f0044.png"
+    ],
+    "crop_xyxy": [
+      650,
+      330,
+      985,
+      620
+    ]
+  },
+  {
+    "id": "M17",
+    "clip": "New_1",
+    "title": "Second scroll / static gates",
+    "board": "reference-analysis/motion-boards/M17-New_1.jpg",
+    "frames": [
+      {
+        "frame": 44,
+        "time_s": 5.375,
+        "path": "reference-analysis/New_1/frames/frame_0044.jpg"
+      },
+      {
+        "frame": 49,
+        "time_s": 6.0,
+        "path": "reference-analysis/New_1/frames/frame_0049.jpg"
+      },
+      {
+        "frame": 54,
+        "time_s": 6.625,
+        "path": "reference-analysis/New_1/frames/frame_0054.jpg"
+      },
+      {
+        "frame": 59,
+        "time_s": 7.25,
+        "path": "reference-analysis/New_1/frames/frame_0059.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M17-New_1-f0044.png",
+      "reference-analysis/detail-crops/M17-New_1-f0059.png"
+    ],
+    "crop_xyxy": [
+      120,
+      95,
+      1170,
+      695
+    ]
+  },
+  {
+    "id": "M18",
+    "clip": "New_1",
+    "title": "Sandbox checks / REST response",
+    "board": "reference-analysis/motion-boards/M18-New_1.jpg",
+    "frames": [
+      {
+        "frame": 55,
+        "time_s": 6.75,
+        "path": "reference-analysis/New_1/frames/frame_0055.jpg"
+      },
+      {
+        "frame": 60,
+        "time_s": 7.375,
+        "path": "reference-analysis/New_1/frames/frame_0060.jpg"
+      },
+      {
+        "frame": 65,
+        "time_s": 8.0,
+        "path": "reference-analysis/New_1/frames/frame_0065.jpg"
+      },
+      {
+        "frame": 69,
+        "time_s": 8.5,
+        "path": "reference-analysis/New_1/frames/frame_0069.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M18-New_1-f0055.png",
+      "reference-analysis/detail-crops/M18-New_1-f0069.png"
+    ],
+    "crop_xyxy": [
+      125,
+      250,
+      1140,
+      640
+    ]
+  },
+  {
+    "id": "M19",
+    "clip": "New_1",
+    "title": "Final scroll / contact reveal",
+    "board": "reference-analysis/motion-boards/M19-New_1.jpg",
+    "frames": [
+      {
+        "frame": 64,
+        "time_s": 7.875,
+        "path": "reference-analysis/New_1/frames/frame_0064.jpg"
+      },
+      {
+        "frame": 68,
+        "time_s": 8.375,
+        "path": "reference-analysis/New_1/frames/frame_0068.jpg"
+      },
+      {
+        "frame": 72,
+        "time_s": 8.875,
+        "path": "reference-analysis/New_1/frames/frame_0072.jpg"
+      },
+      {
+        "frame": 76,
+        "time_s": 9.375,
+        "path": "reference-analysis/New_1/frames/frame_0076.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M19-New_1-f0064.png",
+      "reference-analysis/detail-crops/M19-New_1-f0076.png"
+    ],
+    "crop_xyxy": [
+      330,
+      440,
+      1010,
+      710
+    ]
+  },
+  {
+    "id": "M20",
+    "clip": "New_3",
+    "title": "Persistent nav / chapter indicators",
+    "board": "reference-analysis/motion-boards/M20-New_3.jpg",
+    "frames": [
+      {
+        "frame": 1,
+        "time_s": 0.0,
+        "path": "reference-analysis/New_3/frames/frame_0001.jpg"
+      },
+      {
+        "frame": 25,
+        "time_s": 3.0,
+        "path": "reference-analysis/New_3/frames/frame_0025.jpg"
+      },
+      {
+        "frame": 49,
+        "time_s": 6.0,
+        "path": "reference-analysis/New_3/frames/frame_0049.jpg"
+      },
+      {
+        "frame": 73,
+        "time_s": 9.0,
+        "path": "reference-analysis/New_3/frames/frame_0073.jpg"
+      }
+    ],
+    "crops": [
+      "reference-analysis/detail-crops/M20-New_3-f0001.png",
+      "reference-analysis/detail-crops/M20-New_3-f0073.png"
+    ],
+    "crop_xyxy": [
+      55,
+      0,
+      1240,
+      70
+    ]
+  }
+]

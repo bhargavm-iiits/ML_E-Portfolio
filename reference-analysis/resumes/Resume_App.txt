@@ -1,0 +1,56 @@
+--- PAGE 1 ---
+Bhargav M
++91 7795036940 | bhargav.m23@iiits.in | LinkedIn | GitHub
+Summary
+B.Tech Artificial Intelligence and Data Science student graduating in 2027, with experience developing Android AR
+applications, React interfaces, and backend API integrations. Applies object-oriented programming and data
+structures to application logic and user-facing workflows. Seeking an Application Development Intern role at
+PharmEasy.
+Work Experience
+CYMAX Jan–May 2026
+Unity Developer Intern
+• Developed a Unity 360-degree video player for VR headsets with spherical rendering, headset/controller input,
+and playback controls.
+• Built a React playback client and Python services for VR streaming, integrating authentication, token-controlled
+content access, and encrypted video delivery.
+Indian Institute of Information Technology, Sri City May–Jul 2026
+XR and Simulation Intern
+• Developed the Alipiri–Tirumala AR Navigation app as part of a collaborative project with IIT Tirupati and
+Tirumala Tirupati Devasthanams (TTD).
+• Structured application logic using service-locator, event-bus, object-pool, and state-machine patterns to separate
+navigation, sensor processing, and user-interface components.
+• Developed a demo environment for ISRO’s third launch pad using Unreal Engine 5.
+Projects
+OpthaMiss | Eye-Screening Application GitHub
+React.js, Vite, Tailwind CSS, Axios, Python, FastAPI, Docker
+• Built a React interface for image upload and screening results, with drag-and-drop input, model-specific
+instructions, and result cards.
+• Integrated FastAPI prediction endpoints for anterior and fundus images with structured risk and referral
+responses; packaged the frontend and backend in a multi-stage Docker build.
+Alipiri AR Navigation | Android Walking-Guidance App GitHub
+Unity, C#, AR Foundation, ARCore, JSON, A* Pathfinding
+• Developed an offline Android AR app for the Alipiri–Tirumala route, integrating GPS and visual-inertial
+localization with route guidance and landmark information.
+• Implemented A* routing with spatial indexing and reusable search buffers; built an event-driven navigation HUD
+with progress, ETA, and tracking-status updates.
+StickerMe | Portrait-to-Sticker Application GitHub
+React.js, TypeScript, Vite, Python, FastAPI, SQLAlchemy, SQLite
+• Built a React/TypeScript interface for portrait upload, generation progress, sticker review, caption editing, and
+PNG/ZIP downloads; integrated FastAPI through HTTP and server-sent events.
+• Implemented durable background jobs, cancellation and recovery, and saved version history with comparison and
+restore workflows backed by SQLite.
+Excel-to-App | Spreadsheet-to-API Compiler GitHub
+React.js, Python, FastAPI, PostgreSQL, SQLAlchemy, Docker, pytest
+• Built a spreadsheet-to-API workflow with schema review, a dependency-graph explorer, and a calculation
+playground; implemented parsing, cycle detection, and a 66-function evaluator.
+• Exposed versioned REST APIs and execution audit records; documented 481/481 matching comparisons
+across 37 cases against LibreOffice on a shipping-calculator fixture.
+Technical Skills
+Languages: C#, Python, JavaScript, TypeScript, SQL
+Application Development: React.js, Capacitor, Unity, AR Foundation, ARCore, Tailwind CSS
+APIs and Data: REST APIs, JSON, Axios, FastAPI, PostgreSQL, SQLite, Firebase Firestore
+Tools and Fundamentals: Git, GitHub, Docker, pytest, OOP, data structures and algorithms
+Education
+Indian Institute of Information Technology, Sri City 2023–2027 (expected)
+B.Tech in Artificial Intelligence and Data Science
+Class XII: 92.3% – BGS PU College, Sidlaghatta | Class X: 97.6% – BGS Public School

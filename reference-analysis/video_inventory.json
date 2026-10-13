@@ -1,0 +1,26 @@
+[
+  {
+    "id": "New_1",
+    "source": "D:\\Additional Project\\ML_Portfolio\\Ref_Video\\Folder_4\\New_1\\AI_portfolio_website_video_demon\u2026_20261010163537.mp4",
+    "sha256": "e0a31a5f77f3fda6065a98c47e51160ccdfc2781405e9034e924f340bdeb5a3e",
+    "duration_s": 10.01,
+    "sampling_fps": 8,
+    "frame_count": 80
+  },
+  {
+    "id": "New_2",
+    "source": "D:\\Additional Project\\ML_Portfolio\\Ref_Video\\Folder_4\\New_2\\AI_engineer_portfolio_animation_\u2026_20261010163731.mp4",
+    "sha256": "86628cfa86807ccded0fa6e49abee75dfa4d2d1eb5187ea06f0d243bc50415d1",
+    "duration_s": 10.01,
+    "sampling_fps": 8,
+    "frame_count": 80
+  },
+  {
+    "id": "New_3",
+    "source": "D:\\Additional Project\\ML_Portfolio\\Ref_Video\\Folder_4\\New_3\\AI_engineer_portfolio_animation_\u2026_20261010181931.mp4",
+    "sha256": "6db18b417e039d7d4b5acdfe7e638a70d6bca848fd3f3ff9c0730cb5cf743d09",
+    "duration_s": 10.01,
+    "sampling_fps": 8,
+    "frame_count": 80
+  }
+]

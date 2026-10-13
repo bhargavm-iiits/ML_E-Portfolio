@@ -1,0 +1,64 @@
+--- PAGE 1 ---
+Bhargav M
++91 7795036940 | bhargav.m23@iiits.in | linkedin.com/in/bhargav-ai | github.com/bhargavm-iiits | bhargavm-portfolio.vercel.app | India
+Professional Summary
+B.Tech Artificial Intelligence and Data Science student graduating May 2027, targeting Key Account Manager and Talent Operations
+internships in tech-enabled talent advisory. Owns multi-stage, metric-driven workflows end to end: structured evaluation rubrics, audit trails,
+quality gates, and escalation paths that block incomplete or conflicting records before they reach a reviewer. Fluent in AI-native tooling
+(LLM APIs, RAG, prompt engineering); reads technical and non-technical job specifications quickly and translates them into accurate
+screening criteria. High-agency operator comfortable with daily execution targets, transparent reporting, and direct stakeholder contact.
+Core Competencies and Technical Skills
+• Talent Operations and Screening: Role research, job-specification analysis, structured candidate evaluation rubrics, screening criteria
+design, recruitment pipeline support, technical and non-technical role literacy, market and salary benchmark research, candidate handoffs
+and feedback loops.
+• Account, Stakeholder and Pipeline Ownership: Client and stakeholder communication, requirement gathering, expectation
+alignment, status reporting, escalation handling, multi-stage workflow ownership, stage transitions, SLA design, pipeline-quality tracking,
+conversion and accuracy metrics, process documentation, audit trails.
+• Data, Reporting and Engineering: SQL, PostgreSQL, SQLite, Python (Pandas, NumPy), spreadsheet automation (Excel / Google
+Sheets), data validation, operational reporting, benchmark and variance analysis, FastAPI, REST APIs, Docker, Git, Linux, pytest, audit
+logging.
+• AI-Native Tooling: Anthropic SDK, Gemini API, retrieval-augmented generation (RAG), embeddings and semantic search
+(ChromaDB, BM25), prompt engineering, Pydantic structured output, human-in-the-loop review design.
+• Ways of Working: High agency, accountability, ownership; problem-solving and adaptability in ambiguous, fast-changing
+environments; coachability; startup and tech-ecosystem business acumen; fast ramp-up on new tooling (ATS, CRM, Airtable, Slack);
+cross-functional team collaboration; remote work; English — fluent written and verbal.
+Experience
+IIIT Sri City - Summer Internship May 2026 – Jul 2026
+XR & Simulation Intern Sri City, India
+• Delivered offline AR navigation across a 7.29 km route, fusing GPS, visual-inertial odometry, and compass data through a Kalman filter
+with A* waypoint routing.
+• Audited source-data quality across chained GeoJSON segments, identified a 1.17 km geometry gap, and flagged it as interpolated rather
+than surveyed, keeping accuracy claims transparent to reviewers.
+• Produced and scaled 3D assets in Blender and animated them in Unreal Engine for an ISRO third launch-pad visualisation and
+stakeholder walkthrough.
+CYMAX - BTP Internship Jan 2026 – May 2026
+Unity & XR Developer Intern Hyderabad, India
+• Owned a 360-degree VR video playback system end to end for headset deployment: spherical rendering, headset and controller input, and
+frame-accurate playback controls.
+• Built a Python backend for secure VR streaming with authentication, rate limiting, and encrypted delivery, integrated with a React
+Three Fiber client.
+• Hardened the stack with Argon2 hashing, JWT sessions, and AES encryption; containerised with Docker Compose and covered backend
+behaviour with pytest to hold a consistent quality bar.
+Projects
+ClaimBridge | Evidence-Based Evaluation and Review Automation GitHub
+Python, Anthropic SDK, SQLite, Pydantic, BM25, PyMuPDF, Streamlit, pytest
+• Automated document extraction and reconciliation against structured records, retaining page-level provenance and blocking drafts
+whenever evidence was missing or conflicting.
+• Combined BM25 retrieval, payer and date filters, and the Anthropic SDK to produce cited drafts; enforced citation-ID validation, one
+repair attempt, then escalation.
+• Logged every review event and approval in SQLite with reviewer sign-off and evidence export, under pytest coverage for reconciliation
+and citation failures.
+Excel-to-App | Multi-Stage Workflow Automation and Reporting GitHub
+Python, FastAPI, PostgreSQL, SQLAlchemy, Gemini, Docker, pytest
+• Built a spreadsheet-to-API pipeline supporting 66 functions over a six-table PostgreSQL/SQLite schema, with immutable versions and
+execution audit trails.
+• Added Gemini-assisted schema suggestions behind invalid-reference checks and a human approval gate, keeping every numeric calculation
+deterministic.
+• Validated output automatically against LibreOffice: 481/481 matching comparisons across a 37-case benchmark, with 73 pytest tests.
+Vox-Align | Retrieval-Augmented Voice Assistant GitHub
+Python, Gemini, ChromaDB, Whisper, PyTorch, Pandas, asyncio
+• Built a RAG pipeline over Whisper transcription, ChromaDB vector retrieval, and Gemini to answer support queries from company
+context, the retrieval pattern an AI sourcing stack uses to surface relevant records.
+Education
+Indian Institute of Information Technology, Sri City — B.Tech in Artificial Intelligence and Data Science Aug 2023 – May 2027
+BGS PU College, Sidlaghatta — Class XII, 92.3% · BGS Public School, Class X, 97.6% Apr 2020 – May 2022

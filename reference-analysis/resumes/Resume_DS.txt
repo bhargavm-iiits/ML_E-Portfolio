@@ -1,0 +1,55 @@
+--- PAGE 1 ---
+Bhargav M
++91 7795036940 | bhargav.m23@iiits.in | LinkedIn | GitHub
+Summary
+B.Tech Artificial Intelligence and Data Science student graduating in 2027, with projects in image classification,
+deep learning, geospatial data processing, and data validation. Uses Python, SQL, and image-processing tools to
+build and evaluate data-driven applications. Seeking a Data Scientist internship at Vassar Labs.
+Work Experience
+CYMAX Jan–May 2026
+Unity Developer Intern
+• Developed a Unity 360-degree video player for VR headsets with spherical rendering, headset/controller input,
+and playback controls.
+• Built Python services and a React playback client for VR streaming, integrating authentication, token-controlled
+access, and encrypted video delivery.
+Indian Institute of Information Technology, Sri City May–Jul 2026
+XR and Simulation Intern
+• Developed the Alipiri–Tirumala AR Navigation app as part of a collaborative project with IIT Tirupati and
+Tirumala Tirupati Devasthanams (TTD).
+• Processed GeoJSON route segments and landmark coordinates; combined GPS with visual-inertial localization
+for offline walking guidance.
+• Developed a demo environment for ISRO’s third launch pad using Unreal Engine 5.
+Projects
+OpthaMiss | Deep Learning for Eye Screening GitHub
+Python, PyTorch, Vision Transformers, Pandas, NumPy, Scikit-learn, OpenCV
+• Developed image-screening pipelines for anterior and fundus eye images with glare removal, black-border removal,
+CLAHE enhancement, and test-time augmentation.
+• Implemented a Vision Transformer training workflow with progressive unfreezing and class-balanced sampling;
+added ROC-AUC, F1, precision, recall, and confusion-matrix evaluation.
+Plant Disease Detection | Agricultural Image Classification GitHub
+Python, TensorFlow, Keras, NumPy, OpenCV, scikit-image, Flask
+• Built a leaf-image classification application using TensorFlow/Keras models, with preprocessing for segmentation,
+background removal, contrast enhancement, and noise reduction.
+• Added Gabor texture features and preprocessing visualizations; returned ranked disease predictions and
+confidence scores through a Flask interface.
+Alipiri AR Navigation | Geospatial Data Processing GitHub
+Unity, C#, GeoJSON, GPS, Kalman Filtering, A* Pathfinding
+• Chained route segments by endpoint proximity, corrected segment direction, and validated landmark coordinates;
+flagged a 1.17 km source-data gap as interpolated guidance.
+• Implemented GPS filtering, route snapping, and A* routing; built a navigation HUD to display route progress,
+ETA, and sensor/tracking status.
+Excel-to-App | Calculation and Data Validation GitHub
+Python, SQL, FastAPI, PostgreSQL, SQLAlchemy, pytest, Docker
+• Built a spreadsheet formula parser, dependency graph, cycle detection, and a 66-function evaluator with
+versioned APIs and execution audit records.
+• Validated calculations against LibreOffice, documenting 481/481 matching comparisons across 37 cases on
+a shipping-calculator fixture.
+Technical Skills
+Programming and Data: Python, SQL, C#, Pandas, NumPy, PostgreSQL, SQLite
+ML and Deep Learning: PyTorch, TensorFlow, Keras, Scikit-learn, CNNs, Vision Transformers
+Processing and Evaluation: OpenCV, scikit-image, image preprocessing, augmentation, ROC-AUC, F1
+Visualization and Tools: Matplotlib, Seaborn, GeoJSON, Git, Docker, pytest, FastAPI
+Education
+Indian Institute of Information Technology, Sri City 2023–2027 (expected)
+B.Tech in Artificial Intelligence and Data Science
+Class XII: 92.3% – BGS PU College, Sidlaghatta | Class X: 97.6% – BGS Public School

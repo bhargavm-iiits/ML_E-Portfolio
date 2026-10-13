@@ -1,0 +1,51 @@
+--- PAGE 1 ---
+Bhargav M
++91 7795036940 | bhargav.m23@iiits.in | LinkedIn | GitHub | E-portfolio
+Overview
+B.Tech Artificial Intelligence and Data Science student graduating in 2027, with internship experience and projects in
+Python backends, REST APIs, and AI workflow automation. Builds data-processing systems with SQL
+databases, deterministic validation, and human review. Seeking to contribute these skills to Joveo’s AI-powered
+recruiting platform as a Software Engineer intern.
+Experience
+CYMAX Jan–May 2026
+Unity Developer Intern
+• Developed a Unity 360-degree video player for VR headsets, integrating spherical rendering, headset/controller
+input, and playback controls.
+• Built Python services and a React playback client for VR streaming, with authentication, token-controlled
+content access, and encrypted video delivery.
+Indian Institute of Information Technology, Sri City May–Jul 2026
+XR and Simulation Intern
+• Implemented offline AR navigation using A* routing and GPS/visual-inertial localization; identified a 1.17 km
+source-geometry gap and marked the guidance as interpolated.
+• Modeled and scaled Blender assets and animated an ISRO third launch-pad visualization in Unreal Engine.
+Projects
+Excel-to-App | Spreadsheet-to-API Compiler GitHub
+Python, FastAPI, PostgreSQL, SQLAlchemy, Gemini API, React, Docker
+• Built a formula compiler with a Pratt parser, dependency graph, topological ordering, cycle detection, and a
+66-function evaluator for spreadsheet calculations.
+• Exposed versioned REST APIs with immutable application versions and execution audit records; validated
+Gemini schema suggestions and required human approval before publication.
+Fixproof | Verified AI Code Repair GitHub
+Python, FastAPI, Gemini API, BM25, React, Docker, pytest, GitHub Actions
+• Built a seven-stage repair workflow that retrieves code with BM25, proposes patches, and applies nine static
+checks, rejecting test edits and changes outside permitted files.
+• Compared candidate patches against baseline tests in network-disabled Docker containers with CPU, memory,
+process, and time limits; added CI and evaluation workflows.
+ClaimBridge | Evidence-Based Document Review GitHub
+Python, SQLite, Pydantic, Anthropic SDK, BM25, PyMuPDF, Streamlit
+• Built a synthetic-claim review prototype with PDF evidence extraction, page-level provenance, deterministic
+reconciliation, and payer/date-filtered policy retrieval.
+• Added citation-ID validation, one bounded repair attempt, reviewer approval, and audit records; tested
+conflicting facts, missing documents, and workflow recovery.
+Technical Skills
+Languages: Python, SQL, C#, JavaScript, TypeScript
+Backend and Data: FastAPI, REST APIs, Pydantic, SQLAlchemy, PostgreSQL, SQLite
+AI and Web: Gemini API, Anthropic SDK, RAG, BM25 retrieval, React, Streamlit
+Engineering: Git, Docker, GitHub Actions, pytest, data structures, graph algorithms, OOP
+Education
+Indian Institute of Information Technology, Sri City 2023–2027 (expected)
+B.Tech in Artificial Intelligence and Data Science SGPA: 7.9/10
+Class XII: 92.3% – BGS PU College, Sidlaghatta | Class X: 97.6% – BGS Public School
+Achievements
+• Spreadsheet validation: Documented 481/481 matching output comparisons against LibreOffice across 37 cases
+on the shipping-calculator fixture.
