@@ -1,0 +1,17 @@
+/* Live geometry, studio lighting and typography informed by the supplied references. */
+:root{--bg:#111719;--surface:#181e20;--raised:#202729;--muted:#aeb8b7;--line:#30393a;--lime:#bfdf6c;--cyan:#82d5da}
+.site-header{height:76px;background:#111719e8;border-color:#818e9225;backdrop-filter:blur(12px)}
+.wordmark{font-size:22px;letter-spacing:-.03em}.wordmark svg{width:24px;height:24px}.resume-button{border-radius:24px;border-color:#a9bc736b}.button.primary{border-radius:30px;background:var(--lime);border-color:var(--lime);padding:9px 22px;font-weight:600}.button.primary:hover{background:#d1eb86}
+.scene-wrap{background:#111719}.scene-wrap canvas{opacity:1}
+.scene-vignette{background:linear-gradient(90deg,#111719dd,transparent 53%),linear-gradient(180deg,#11171935,transparent 20%,transparent 82%,#111719);z-index:1}
+.stage-copy{top:47%;transform:translateY(-40%);width:40%;z-index:2}.stage-copy .eyebrow{margin-bottom:19px;font-size:10px;letter-spacing:.1em}
+.hero-copy h1{font-size:clamp(48px,5.2vw,82px);font-weight:600;letter-spacing:-.055em;line-height:1.03}.hero-copy h1 em{color:var(--text)}
+.hero-description{font-size:14px;line-height:1.65;max-width:360px;margin-top:25px}.hero-actions{margin-top:25px;gap:24px}.hero-actions .button{gap:30px;min-height:46px}.hero-personal{margin-top:27px;font-size:8px;color:#d9e2df;background:#111719c9;padding:5px 8px;width:fit-content;border-radius:3px}
+.explode-copy h2,.verify-copy h2{font-size:clamp(46px,4.8vw,72px);font-weight:600;letter-spacing:-.05em}.stage-copy h2 em{color:var(--text)}
+.explode-copy p:not(.eyebrow),.verify-copy p:not(.eyebrow){font-size:13px;line-height:1.65;max-width:345px}.scene-annotation{z-index:2;bottom:15%;font-size:8px;background:#1117199c;padding:10px 13px}.journey-footer{z-index:3;bottom:26px}
+.contact{background:#111719}.contact-scene{top:65px;right:0;width:650px;height:510px;opacity:.92;mask-image:linear-gradient(90deg,transparent,black 24%,black 85%,transparent)}
+.contact-scene canvas{width:100%;height:100%;display:block}.contact h2{font-size:clamp(48px,5.5vw,86px);font-weight:600;max-width:760px}.contact h2 em{color:var(--text)}
+@media(max-width:1100px) and (min-width:761px){.stage-copy{width:43%}.hero-copy h1{font-size:55px}.hero-description{font-size:13px}.hero-personal{font-size:7px}}
+@media(max-width:760px){.site-header{height:72px}.site-header #mobile-nav:not([hidden]){background:#111719}.stage-copy{top:118px;left:24px;transform:none;width:calc(100% - 48px)}.stage-copy .eyebrow{font-size:8px;margin-bottom:16px}.hero-copy h1{font-size:52px}.hero-description{font-size:13px;margin-top:18px;max-width:330px}.hero-actions{margin-top:20px}.hero-actions .button{padding:9px 16px;min-height:43px;font-size:11px}.hero-personal{display:none}.scene-vignette{background:linear-gradient(180deg,#111719 0%,#111719db 40%,transparent 65%,transparent 85%,#111719)}.explode-copy h2,.verify-copy h2{font-size:48px}.scene-annotation{bottom:10%;right:14px;font-size:7px;padding:6px 9px}.scene-annotation small{font-size:6px}.journey-footer{bottom:18px}.contact-scene{width:320px;height:320px;right:-145px;top:100px;opacity:.45}.contact h2{font-size:46px}}
+@media(max-width:360px){.stage-copy{left:18px;width:calc(100% - 36px)}.hero-copy h1{font-size:46px}.site-header .wordmark{font-size:16px}.contact h2{font-size:40px}}
+@media(prefers-reduced-motion:reduce){.scene-annotation{display:none}}

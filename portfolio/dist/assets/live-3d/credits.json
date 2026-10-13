@@ -1,0 +1,31 @@
+{
+  "assets": [
+    {
+      "name": "Studio Small 09",
+      "creator": "Sergej Majboroda",
+      "source": "https://polyhaven.com/a/studio_small_09",
+      "license": "CC0",
+      "download": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_09_1k.hdr",
+      "md5": "d5d7eb9d26d341d6aa4d11c1a54fd97c"
+    },
+    {
+      "name": "Metal 046 A",
+      "creator": "ambientCG / Lennart Demes",
+      "source": "https://ambientcg.com/view?id=Metal046A",
+      "license": "CC0",
+      "license_url": "https://docs.ambientcg.com/license/",
+      "files": [
+        "Metal046A_1K_Color.jpg",
+        "Metal046A_1K_Metalness.jpg",
+        "Metal046A_1K_NormalGL.jpg",
+        "Metal046A_1K_Roughness.jpg"
+      ]
+    }
+  ],
+  "code": {
+    "name": "Three.js 0.180.0 addon modules",
+    "license": "MIT",
+    "source": "https://github.com/mrdoob/three.js/tree/r180/examples/jsm"
+  },
+  "custom_geometry": "Modular AI hardware, circuits, fans and portal corridor authored for this portfolio; reference videos used only for visual analysis."
+}
