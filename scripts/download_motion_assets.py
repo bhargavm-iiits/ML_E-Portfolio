@@ -52,7 +52,6 @@ for rel in ['loaders/GLTFLoader.js', 'postprocessing/GTAOPass.js', 'postprocessi
 
 models = {
     'space_ship_hallway.glb': '051c58dea01930b04d9d23d15f6a9a6a0628358d17954feb47dfa06e075f3bfe',
-    'PrimaryIonDrive.glb': '4da2bc76db5a1f639866f05219426c9fde0ece3239c3cb054b5675a8dc1cde21',
 }
 for name, digest in models.items():
     data = fetch(f'https://raw.githubusercontent.com/mrdoob/three.js/r180/examples/models/gltf/{name}')

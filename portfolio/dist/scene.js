@@ -20,13 +20,18 @@ const easeOut=t=>1-Math.pow(1-t,3),easeInOut=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3
 
 // Final grade in display space: lens-edge chromatic split that grows with scroll speed, vignette and fine grain.
 const FinishShader={
-  uniforms:{tDiffuse:{value:null},time:{value:0},fade:{value:0},aberration:{value:.0015},vignette:{value:.32},grain:{value:.035},resolution:{value:new THREE.Vector2(1,1)}},
+  uniforms:{tDiffuse:{value:null},time:{value:0},fade:{value:0},flash:{value:0},aberration:{value:.0015},vignette:{value:.32},grain:{value:.035},resolution:{value:new THREE.Vector2(1,1)}},
   vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`,
-  fragmentShader:`uniform sampler2D tDiffuse;uniform float time,fade,aberration,vignette,grain;uniform vec2 resolution;varying vec2 vUv;
+  fragmentShader:`uniform sampler2D tDiffuse;uniform float time,fade,flash,aberration,vignette,grain;uniform vec2 resolution;varying vec2 vUv;
   float rand(vec2 co){return fract(sin(dot(co,vec2(12.9898,78.233)))*43758.5453);}
   void main(){vec2 d=vUv-.5;float r=dot(d,d);vec2 off=d*aberration*(.35+r*3.0);
   vec3 col=vec3(texture2D(tDiffuse,vUv+off).r,texture2D(tDiffuse,vUv).g,texture2D(tDiffuse,vUv-off).b);
   col*=1.0-vignette*smoothstep(.12,.62,r*1.55);
+  // Green dive flash: a short radial blur toward the centre, then a lime bloom that covers the cut.
+  if(flash>.001){vec3 acc=vec3(0.);for(int i=0;i<6;i++)acc+=texture2D(tDiffuse,vUv-d*(float(i)/6.0)*flash*.18).rgb;
+    col=mix(col,acc/6.0,min(1.0,flash*1.6));vec3 lime=vec3(.76,.93,.44);
+    col+=lime*flash*(1.0-smoothstep(0.0,.45,r))*1.1;
+    col=mix(col,mix(vec3(.07,.16,.08),lime*1.15,1.0-smoothstep(0.0,.32,r)),flash*flash*.85);}
   col+=(rand(vUv*resolution+fract(time)*91.7)-.5)*grain;
   col*=1.0-fade;
   gl_FragColor=vec4(col,1.0);}`
@@ -130,6 +135,26 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     const output=new THREE.Group();output.position.set(1.95,-.7,-8.3);output.rotation.y=-.9;output.scale.setScalar(.7);corridor.add(output);block(output,1.3,1.35,.075,materials.dark);label(output,'REVIEW',0,.3,.044,.9,.2,'#f1c389');label(output,'EXCEPTION',0,0,.044,.9,.14,'#f1c389');
   }
   const routePackets=[];if(!compact)for(let i=0;i<22;i++){const mesh=new THREE.Mesh(new THREE.BoxGeometry(.06,.06,.12),i%4===0?materials.lime:materials.cyan);corridor.add(mesh);routePackets.push(mesh);}
+  // Corridor destination: a clean aperture portal echoing the cube's AI chip.
+  const portal=new THREE.Group(),portalSpin=new THREE.Group(),portalCounter=new THREE.Group();
+  if(!compact){
+    portal.position.set(0,.5,-15);portal.add(portalSpin,portalCounter);corridor.add(portal);
+    const glow=(c,k)=>new THREE.MeshBasicMaterial({color:new THREE.Color(c).multiplyScalar(k)});
+    const ringMat=glow(0x80d8cb,1.5),arcMat=glow(0xc2ed71,2.2),faint=new THREE.MeshBasicMaterial({color:0x80d8cb,transparent:true,opacity:.22,depthWrite:false});
+    portal.add(new THREE.Mesh(new THREE.TorusGeometry(1.3,.011,8,192),ringMat));
+    portal.add(new THREE.Mesh(new THREE.TorusGeometry(1.17,.004,6,192),faint));
+    const tick=[];for(let i=0;i<72;i++){const a=i/72*Math.PI*2,r0=1.37,r1=i%6?1.42:1.48;tick.push(Math.cos(a)*r0,Math.sin(a)*r0,0,Math.cos(a)*r1,Math.sin(a)*r1,0);}
+    const tg=new THREE.BufferGeometry();tg.setAttribute('position',new THREE.Float32BufferAttribute(tick,3));
+    portalCounter.add(new THREE.LineSegments(tg,new THREE.LineBasicMaterial({color:0x80d8cb,transparent:true,opacity:.55})));
+    for(const [r,start,len,mat] of [[1.06,.2,1.5,arcMat],[1.06,.2+Math.PI,1.5,arcMat],[.94,1.1,.9,ringMat],[.94,1.1+Math.PI,.9,ringMat]]){const m=new THREE.Mesh(new THREE.TorusGeometry(r,.014,8,96,len),mat);m.rotation.z=start;portalSpin.add(m);}
+    const disc=new THREE.Mesh(new THREE.CircleGeometry(.86,96),new THREE.MeshBasicMaterial({color:0x08120f,transparent:true,opacity:.6,depthWrite:false}));disc.position.z=-.01;portal.add(disc);
+    const chip=new THREE.Group();portal.add(chip);
+    chip.add(new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.PlaneGeometry(.52,.52)),new THREE.LineBasicMaterial({color:new THREE.Color(0xc2ed71).multiplyScalar(2)})));
+    chip.add(new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.PlaneGeometry(.34,.34)),new THREE.LineBasicMaterial({color:0x80d8cb,transparent:true,opacity:.7})));
+    const pins=[];for(const k of [-1,1])for(let i=-2;i<=2;i++){const o=i*.08;pins.push(k*.26,o,0,k*.36,o,0,o,k*.26,0,o,k*.36,0);}
+    const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.Float32BufferAttribute(pins,3));
+    chip.add(new THREE.LineSegments(pg,new THREE.LineBasicMaterial({color:0x80d8cb,transparent:true,opacity:.6})));
+  }
   const corridorLights=[];if(!compact)for(const [z,c] of [[2,0x80d8cb],[-5,0xc2ed71],[-12,0x80d8cb]]){const l=new THREE.PointLight(c,0,9,1.6);l.position.set(0,1.4,z);scene.add(l);corridorLights.push(l);}
 
   const gallery=!compact&&content?makeGallery({...content,materials,renderer}):null;
@@ -143,7 +168,7 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     else{outPos.set(side*.06,.42,z+4.4);outLook.set(side*.06,.26,z-2);}
   }
   const gltf=new GLTFLoader(manager);
-  let hallway=null,ionDrive=null;const HALL_ENTRANCE=4.9;
+  let hallway=null;const HALL_ENTRANCE=4.9;
   const credits=[];
   const panelMaps={normal:maps.NormalGL.clone(),rough:maps.Roughness.clone()};for(const t of Object.values(panelMaps)){t.repeat.set(3,3);t.needsUpdate=true;}
   const modelsReady=compact?Promise.resolve():Promise.allSettled([
@@ -161,16 +186,6 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
       };
       hallway.traverse(o=>{if(o.isMesh){const m=restyle[o.material?.name];if(m){o.material.dispose();o.material=m;}o.receiveShadow=true;o.castShadow=false;}});
       const s=.75;hallway.scale.setScalar(s);hallway.position.set(-20.116*s,-1.56+3.0796*s,5-3.5788*s);corridor.add(hallway);dirty=true;
-    }),
-    gltf.loadAsync('assets/models/PrimaryIonDrive.glb').then(g=>{
-      if(disposed)return;ionDrive=g.scene;credits.push(g.asset?.extras?.title);
-      const lime=new THREE.Color(0xc2ed71).multiplyScalar(2.4),cyan=new THREE.Color(0x80d8cb).multiplyScalar(1.8);
-      ionDrive.traverse(o=>{if(!o.isMesh)return;const name=o.material?.name;let m;
-        if(name==='constant2')m=new THREE.MeshBasicMaterial({color:lime});
-        else if(name==='constant1')m=new THREE.MeshBasicMaterial({color:cyan});
-        else m=new THREE.MeshBasicMaterial({color:0x0b1a17,transparent:true,opacity:.5,depthWrite:false});
-        o.material.dispose();o.material=m;});
-      const pivot=new THREE.Group();pivot.position.set(0,.16,-15);pivot.rotation.y=Math.PI/2;pivot.scale.setScalar(.62);pivot.add(ionDrive);corridor.add(pivot);dirty=true;
     })
   ]);
   modelsReady.then(()=>{canvas.dataset.models=credits.filter(Boolean).join(' | ')||'none';});
@@ -178,12 +193,12 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
   const ready=Promise.allSettled([hdrReady,...textureTasks]).then(()=>{onProgress(1);});
   let resolveFirstFrame;const firstFrame=new Promise(resolve=>{resolveFirstFrame=resolve;});
 
-  let composer=null,gtao=null,finish=null,smaa=null;
+  let composer=null,gtao=null,finish=null,smaa=null,bloom=null;
   if(!compact){
     composer=new EffectComposer(renderer,new THREE.WebGLRenderTarget(1,1,{type:THREE.HalfFloatType}));
     composer.addPass(new RenderPass(scene,camera));
     gtao=new GTAOPass(scene,camera,1,1);gtao.updateGtaoMaterial({radius:.35,distanceExponent:1.2,thickness:1,scale:1.1,samples:12,distanceFallOff:1,screenSpaceRadius:false});gtao.updatePdMaterial({lumaPhi:10,depthPhi:2,normalPhi:3,radius:4,rings:2,samples:12});gtao.blendIntensity=.85;composer.addPass(gtao);
-    composer.addPass(new UnrealBloomPass(new THREE.Vector2(1,1),.36,.5,.9));
+    bloom=new UnrealBloomPass(new THREE.Vector2(1,1),.36,.5,.9);composer.addPass(bloom);
     composer.addPass(new OutputPass());
     smaa=new SMAAPass();composer.addPass(smaa);
     finish=new ShaderPass(FinishShader);composer.addPass(finish);
@@ -217,10 +232,12 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     const exit=smooth(3.3,JOURNEY.G0,U);
     const warpT=smooth(JOURNEY.T-1,JOURNEY.T,U);
     const inGallery=gallery&&U>3.5;
-    core.visible=U<2.4||compact;corridor.visible=U>1.5&&U<4.3&&!compact;
+    // Dive: the camera flies straight into the opened cube; a green flash covers the pass-through.
+    const dive=compact||reduced?0:smooth(2.36,2.5,U)*(1-smooth(2.54,2.7,U));
+    core.visible=U<2.53||compact;corridor.visible=U>1.5&&U<4.3&&!compact;
     core.position.set(compact||narrow?0:mix(2.3,.3,opening),compact?0:narrow?-1.1:0,0);
     core.rotation.y=-.36+pointer.x*.07+Math.sin(time*.12)*.035;core.rotation.z=pointer.y*.006;
-    core.scale.setScalar((narrow&&!compact?.78:1)*(1-travel*.78));
+    core.scale.setScalar(narrow&&!compact?.78:1);
     const floorOffset=narrow&&!compact?-.75*(1-travel):0;floor.position.y=-1.56+floorOffset;seams.position.y=floorOffset;floor.visible=seams.visible=U<3.6;
     for(const d of hardware.decks){
       d.hover=damp(d.hover,d.index===hoverIndex?1:0,10,dt||.016);
@@ -240,12 +257,12 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     camera.position.copy(baseCamera).lerp(flyCamera,travel);
     target.set(compact?0:narrow?0:mix(.35,0,opening),compact?0:narrow?.95:0,0);
     target.lerp(tmp.set(0,.35,flyCamera.z-10),travel);
-    let fov=compact?37:narrow?43:37,fade=0;
+    let fov=compact?37:narrow?43:37,fade=0,gate=0;
     if(gallery&&U>3.3){
       stopView(0,stopCam,stopLook);
       camera.position.lerp(stopCam,exit);camera.position.y=mix(.05,stopCam.y,smooth(3.75,JOURNEY.G0,U));
       target.set(0,camera.position.y,camera.position.z-10).lerp(stopLook,smooth(3.8,JOURNEY.G0,U));
-      fade=Math.max(0,1-Math.abs(U-3.66)/.17)*.92;
+      gate=Math.max(0,1-Math.abs(U-3.66)/.17);
       if(U>=JOURNEY.G0){
         const idx=clamp((U-JOURNEY.G0)/(N-1))*(N-1),k=Math.min(N-2,Math.floor(idx)),f=idx-k,m=smooth(.62,1,f);
         stopView(k,stopCam,stopLook);stopView(k+1,stopCam2,stopLook2);
@@ -261,6 +278,7 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
       }
     }
     camera.lookAt(target);
+    fov+=dive*16;
     if(Math.abs(camera.fov-fov)>.01){camera.fov=fov;camera.updateProjectionMatrix();}
     if(gallery){
       gallery.root.visible=inGallery;gallery.warp.visible=U>JOURNEY.T-1.4;
@@ -274,11 +292,13 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     // The hallway shell spans z -16.9..5 around the cube. Show it only once the camera is inside, so its outer wall never
     // blacks out the opened cube and corridor lights during the approach.
     if(hallway)hallway.visible=camera.position.z<HALL_ENTRANCE&&camera.position.z>-17.5;
-    if(finish)finish.uniforms.fade.value=fade;
+    const flash=Math.max(dive,gate);
+    if(finish){finish.uniforms.fade.value=fade;finish.uniforms.flash.value=flash;}
+    if(bloom)bloom.strength=.36+flash*1.1;
     // Scroll speed adds a slight banking roll and lens split; both settle to zero at rest.
     camera.rotateZ(THREE.MathUtils.clamp(smoothVelocity*.0009,-.02,.02));
     for(let i=0;i<routePackets.length;i++){const z=8-((time*.55+i*1.35)%24);routePackets[i].position.set(-.45+Math.sin(z*.15)*.08,-1.46,z);}
-    if(ionDrive)ionDrive.rotation.x=time*.35;
+    portalSpin.rotation.z=time*.22;portalCounter.rotation.z=-time*.06;
     // Corridor lights stay in the scene (switched off, not removed) so the light count never changes and no shader recompiles mid-scroll.
     for(let i=0;i<corridorLights.length;i++)corridorLights[i].intensity=corridor.visible?3+Math.sin(time*1.3+i*2)*.7:0;
     dieLight.position.set(core.position.x,.1+core.position.y,0);dieLight.intensity=.9+opening*.8;
