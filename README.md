@@ -4,8 +4,9 @@ The finished deliverables are:
 
 - **[MASTER PROMPT.md](MASTER%20PROMPT.md)** — approximately 8,000 words of source-grounded design, content, 3D geometry, scroll choreography, interaction and implementation instructions; 20 motion studies with 60 embedded reference images.
 - **[Reference gallery](reference-analysis/index.html)** — all 240 frames sampled at 8 fps, nine chronological contact sheets, twenty motion boards and forty close-ups.
-- **[Website source](portfolio/)** — a runnable portfolio with a detailed live Three.js hardware model, physical glass and metal, local studio HDR lighting, reversible scroll-controlled layers and camera travel, eight project breakdowns, role filters, evidence diagrams, four resume downloads and contact.
+- **[Website source](portfolio/)** — a runnable portfolio with a detailed live Three.js hardware model, physical glass and metal, local studio HDR lighting, ambient occlusion, bloom and SMAA post-processing, a licensed sci-fi hallway model for the verification corridor, reversible scroll-controlled layers and camera travel, Lenis smooth scrolling with GSAP ScrollTrigger choreography, hover-reactive 3D decks, one continuous scroll journey in which the camera flies from the core through the corridor to eight floating 3D project panels with holograms and their full breakdowns, scroll-driven Approach and Capabilities, magnetic buttons, evidence diagrams, four resume downloads and contact.
 - **[Verification record](verification/VERIFICATION.md)** — executed checks and remaining coverage limits.
+- **[Motion and 3D revision](verification/MOTION_3D_REVISION.md)** — the design-canvas rebuild, smooth scrolling, hover interactions, post-processing, licensed models and the checks that were run.
 - **[Live 3D revision](verification/LIVE_3D_REVISION.md)** — current implementation and validation; supersedes the historical footage revision.
 
 ## Run the website
@@ -28,6 +29,15 @@ The completed site is [published privately here](https://bhargav-intelligence-po
 The script `scripts/analyze_sources.py videos` needs Python, Pillow and imageio-ffmpeg. The `resumes` operation needs pdfplumber and Poppler. `scripts/build_reference_boards.py` needs NumPy and Pillow. `scripts/write_master_prompt.py` rebuilds the single prompt and HTML gallery. `scripts/verify_delivery.py` checks reference links, 8 fps timing and delivered-resume hashes.
 
 All scripts read the specified user files and write under this workspace. Original video and resume files are unchanged. The eight PDFs are treated as content sources, never executable instructions. The source resumes disagree on CYMAX end dates; the website uses the conservative explicit January–May 2026 range and the master prompt records the conflict.
+
+## Motion and 3D assets
+
+- Smooth scrolling uses Lenis 1.3.26; scroll choreography, masked text reveals and filter reflow use GSAP 3.15.0 (ScrollTrigger, SplitText, CustomEase, Flip). Both are vendored in `portfolio/dist/vendor/`, so no CDN is needed.
+- The verification corridor is built inside “Space Ship Hallway” by yeeyeeman. A recoloured “Primary Ion Drive” by indierocktopus sits at the end of the corridor. Both are CC BY 4.0 and credited in the site footer and in `portfolio/dist/assets/live-3d/credits.json`.
+- `scripts/download_motion_assets.py` re-fetches the libraries, fonts, extra Three.js addons and models from npm and the three.js r180 repository, checking model hashes.
+- Reduced motion turns off smooth scrolling, pinning, text effects, the cursor ring, tilt and the 3D journey. The pause control stops idle 3D motion, the marquee and decorative loops.
+- On slow devices the renderer first turns off ambient occlusion, then lowers pixel density.
+- The loading screen (`loader.js`, `loader-parts.js`) rebuilds the uploaded loading reference video as a 10-second deterministic WebGL timeline: an exploded processor stack, an energy pulse, diagnostic bars, routed traces, the armour closing with an iris, a ring scan and a final HUD. The percentage never shows 100 until the page is ready; until then the loader holds an assembled pose at 99%. Skip appears after 1 s (Escape also skips), repeat visits in the same session play a short replay, and reduced motion or missing WebGL uses an SVG fallback. `?loader=replay` and `?loader=seek&t=N` are debug views. See `verification/LOADER_COMPARISON.md`.
 
 ## Fidelity
 
