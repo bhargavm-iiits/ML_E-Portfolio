@@ -21,18 +21,17 @@ let resolvePageReady;const pageReady=new Promise(r=>{resolvePageReady=r;});
 const pageRegions=[$('main'),$('.site-header'),$('.site-footer'),$('.skip')];
 pageRegions.forEach(el=>{el.inert=true;});$('main').setAttribute('aria-busy','true');
 let loaderSeen=false;try{loaderSeen=sessionStorage.getItem('bm-loader-seen')==='1';}catch{}
-let loader,loaderPoll,loaderActive=true;
+let loader,loaderActive=true;
 document.documentElement.classList.add('is-loading');
 
 /* ---------- 3D scenes ---------- */
 const deckTip=$('.deck-tip');let pointerX=0,pointerY=0;
 addEventListener('pointermove',e=>{pointerX=e.clientX;pointerY=e.clientY;if(deckTip.classList.contains('is-on'))placeTip();},{passive:true});
 function placeTip(){deckTip.style.transform=`translate3d(${pointerX+22}px,${pointerY-18}px,0)`;}
-var loadProgress=0;
 const scene=createScene($('#scene'),{reduced,content:{projects,flows,artwork},onPanelHover:i=>{
   if(i<0){deckTip.classList.remove('is-on');return;}
   $('.deck-tip-num').textContent=`PROJECT ${pad(i+1)}`;$('.deck-tip-name').textContent=projects[i].name.toUpperCase();placeTip();deckTip.classList.add('is-on');
-},onProgress:p=>{loadProgress=p;},onFailure:()=>{$('.scene-fallback').hidden=false;$('#scene').hidden=true;},onHover:i=>{
+},onFailure:()=>{$('.scene-fallback').hidden=false;$('#scene').hidden=true;},onHover:i=>{
   if(i<0){deckTip.classList.remove('is-on');document.body.style.cursor='';return;}
   $('.deck-tip-num').textContent=`DECK ${pad(i+1)}`;$('.deck-tip-name').textContent=DECK_LABELS[i];placeTip();deckTip.classList.add('is-on');
 }});
@@ -40,10 +39,9 @@ const contactScene=createScene($('#contact-scene'),{reduced,compact:true,onFailu
 loader=mountLandingLoader($('.ld'),scene,pageReady,{mode:loaderQuery==='replay'?'replay':'normal',seek:loaderQuery==='seek'?Number(new URLSearchParams(location.search).get('t')||0):null,quick:loaderSeen&&!loaderQuery,reduced,
   onReveal:()=>revealHero(),onExit:()=>{
     loaderActive=false;pageRegions.forEach(el=>{el.inert=false;});$('main').removeAttribute('aria-busy');try{sessionStorage.setItem('bm-loader-seen','1');}catch{}
-    clearInterval(loaderPoll);lenis?.start();
+    lenis?.start();
   }});
 window.__bmLoader=loader;
-loaderPoll=setInterval(()=>loader.setTaskProgress('assets',loadProgress),120);
 
 /* ---------- Content ---------- */
 const stageHtml=stages=>stages.map(([label,kind],k)=>`<span class="stage ${kind}" style="--i:${k}"><span aria-hidden="true">${kind==='in'?'›':kind==='gate'?'✓':'·'}</span>${label}</span>${k<stages.length-1?'<span class="stage-arrow" aria-hidden="true">→</span>':''}`).join('');
@@ -194,11 +192,11 @@ $$('main>section[id]').forEach(s=>sectionObserver.observe(s));sectionObserver.ob
 
 /* ---------- Motion system ---------- */
 function intro(){
-  // Readiness contract: main-scene assets loaded, its first frame rendered, and fonts ready.
-  document.fonts?.ready.then(()=>loader.setTaskProgress('interface',1));
-  Promise.all([scene.ready.then(()=>{loader.setTaskProgress('assets',1);}),scene.firstFrame,document.fonts?.ready??Promise.resolve()])
+  // Readiness: the scene's first frame and fonts. Textures and GPU warm-up get a short grace period, never an open-ended wait.
+  Promise.all([scene.firstFrame,document.fonts?.ready??Promise.resolve()])
+    .then(()=>Promise.race([scene.prepared,new Promise(r=>setTimeout(r,1500))]))
     .then(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))))
-    .then(()=>{loader.setTaskProgress('render',1);resolvePageReady();});
+    .then(resolvePageReady);
 }
 function revealHero(){
   if(!hasGsap||reduced)return;
@@ -306,4 +304,4 @@ function setupPointer(){
 }
 
 setupMotion();intro();onScroll();
-addEventListener('pagehide',()=>{clearInterval(loaderPoll);loader.dispose();scene.dispose();contactScene.dispose();});
+addEventListener('pagehide',()=>{loader.dispose();scene.dispose();contactScene.dispose();});
