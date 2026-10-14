@@ -60,6 +60,7 @@ $('#project-list').innerHTML=projects.map((p,i)=>`<article class="g-card ${i%2?'
   <div class="g-actions" data-in style="--d:4"><a class="button primary magnetic" href="https://github.com/bhargavm-iiits/${p.repo}" target="_blank" rel="noopener noreferrer"><span class="roll" data-roll="View source">View source</span><span aria-hidden="true">↗</span></a><a class="text-link" href="mailto:bhargav.m23@iiits.in?subject=${encodeURIComponent('Let’s discuss '+p.name)}"><span class="roll" data-roll="Discuss">Discuss</span> <span aria-hidden="true">↗</span></a></div>
   <p class="g-sources mono" data-in style="--d:5">STACK · ${p.stack.join(' · ')}<br>SOURCES · ${p.sources.join(' · ')}</p>
 </article>`).join('');
+$('.g-rail').insertAdjacentHTML('beforeend',projects.map((p,i)=>`<i style="--at:${i/(projects.length-1)}"><b class="mono">${pad(i+1)}</b></i>`).join(''));
 $('.deck-index').innerHTML=projects.map((p,i)=>`<button type="button" data-jump="${i}"${i===0?' aria-current="true"':''}><span class="mono">${pad(i+1)}</span><span class="deck-index-name">${p.name}</span></button>`).join('');
 $$('.g-more-toggle').forEach(b=>b.addEventListener('click',()=>{const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',String(open));b.closest('.g-card').classList.toggle('show-more',open);b.querySelector('span').textContent=open?'−':'+';}));
 
@@ -130,7 +131,7 @@ document.addEventListener('click',e=>{
 /* ---------- Journey ---------- */
 // One scroll timeline drives the 3D camera and every overlay: hero → layers → corridor → eight projects → warp.
 const journey=$('.journey'),stage=$('.journey-stage'),copies=$$('.stage-copy');
-const gCards=$$('.g-card'),gIntro=$('.g-intro'),gOutro=$('.g-outro'),gHud=$('.g-hud'),gallery=$('.gallery-copy'),mark=$('#work');
+const gCards=$$('.g-card'),gIntro=$('.g-intro'),gOutro=$('.g-outro'),gHud=$('.g-hud'),gRail=$('.g-rail'),railNodes=$$('.g-rail i'),gallery=$('.gallery-copy'),mark=$('#work');
 const T=JOURNEY.T,G0=JOURNEY.G0;
 const chapterNames=[['INTELLIGENCE CORE','DATA · MODELS · VERIFICATION'],['OPEN ARCHITECTURE','RETRIEVAL · REASONING · GUARDRAILS'],['VERIFICATION CORRIDOR','SOURCE · RETRIEVE · VALIDATE · REVIEW'],['SELECTED WORK','EIGHT SYSTEMS · ONE JOURNEY']];
 const CHAPTER_AT=[0,1.0,2.6,G0+.25],CHAPTER_END=[.5,1.85,3.7,T];
@@ -146,10 +147,12 @@ function updateJourney(p){
   stage.style.setProperty('--corr',band(u,1.85,2.2,3.3,3.6).toFixed(3));
   show(gIntro,band(u,3.72,3.92,4.18,4.32),30);show(gOutro,band(u,T-1,T-.85,T-.4,T-.2),20);
   let act=-1;gCards.forEach((c,k)=>{const [a,b,cc,d]=cardWindow(k);const o=band(u,a,b,cc,d);c.style.opacity=o;c.inert=o<.5;c.style.pointerEvents=o>.5?'auto':'none';c.classList.toggle('is-on',o>.35);if(o>.5)act=k;});
-  const inG=u>3.85&&u<T-1;gHud.classList.toggle('is-on',inG);gHud.inert=!inG;
+  const inG=u>3.85&&u<T-1;gHud.classList.toggle('is-on',inG);gHud.inert=!inG;gRail.classList.toggle('is-on',u>4.32&&u<T-1);
   const focus=clamp((u-G0)/(N-1))*(N-1);const k=Math.min(N-1,Math.max(0,Math.floor(focus+.2)));
   if(k!==activeCard){activeCard=k;$$('[data-jump]').forEach((b,i)=>{if(i===k)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current');});$('.deck-meter-num').textContent=pad(k+1);}
   $('.deck-meter-bar span').style.transform=`scaleX(${clamp((u-G0)/(T-1-G0))})`;
+  // Vertical timeline: the fill follows the scroll, nodes light up as each project is reached.
+  gRail.style.setProperty('--fill',clamp((u-G0)/(N-1)).toFixed(4));railNodes.forEach((n,i)=>{n.classList.toggle('is-active',i===k);n.classList.toggle('is-done',i<k);});
   $('.scene-annotation').style.opacity=1-band(u,3.6,3.9,T,T+1);
   const chapter=u<CHAPTER_END[0]?0:u<CHAPTER_END[1]?1:u<CHAPTER_END[2]?2:3;
   $$('[data-chapter]').forEach((btn,i)=>{const a=i?CHAPTER_END[i-1]:0;btn.style.setProperty('--fill',clamp((u-a)/(CHAPTER_END[i]-a)));if(i===chapter)btn.setAttribute('aria-current','step');else btn.removeAttribute('aria-current');});
