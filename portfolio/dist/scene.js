@@ -130,7 +130,7 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     const output=new THREE.Group();output.position.set(1.95,-.7,-8.3);output.rotation.y=-.9;output.scale.setScalar(.7);corridor.add(output);block(output,1.3,1.35,.075,materials.dark);label(output,'REVIEW',0,.3,.044,.9,.2,'#f1c389');label(output,'EXCEPTION',0,0,.044,.9,.14,'#f1c389');
   }
   const routePackets=[];if(!compact)for(let i=0;i<22;i++){const mesh=new THREE.Mesh(new THREE.BoxGeometry(.06,.06,.12),i%4===0?materials.lime:materials.cyan);corridor.add(mesh);routePackets.push(mesh);}
-  const corridorLights=[];if(!compact)for(const [z,c] of [[2,0x80d8cb],[-5,0xc2ed71],[-12,0x80d8cb]]){const l=new THREE.PointLight(c,3.2,9,1.6);l.position.set(0,1.4,z);corridor.add(l);corridorLights.push(l);}
+  const corridorLights=[];if(!compact)for(const [z,c] of [[2,0x80d8cb],[-5,0xc2ed71],[-12,0x80d8cb]]){const l=new THREE.PointLight(c,0,9,1.6);l.position.set(0,1.4,z);scene.add(l);corridorLights.push(l);}
 
   const gallery=!compact&&content?makeGallery({...content,materials,renderer}):null;
   if(gallery)scene.add(gallery.root);
@@ -143,7 +143,7 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     else{outPos.set(side*.06,.42,z+4.4);outLook.set(side*.06,.26,z-2);}
   }
   const gltf=new GLTFLoader(manager);
-  let hallway=null,ionDrive=null;
+  let hallway=null,ionDrive=null;const HALL_ENTRANCE=4.9;
   const credits=[];
   const panelMaps={normal:maps.NormalGL.clone(),rough:maps.Roughness.clone()};for(const t of Object.values(panelMaps)){t.repeat.set(3,3);t.needsUpdate=true;}
   const modelsReady=compact?Promise.resolve():Promise.allSettled([
@@ -271,13 +271,16 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
         gallery.update(time,camera.position,focus,hoverPanel,dt||.016,U-JOURNEY.G0);
       }
     }
-    if(hallway)hallway.visible=camera.position.z>-17.5;
+    // The hallway shell spans z -16.9..5 around the cube. Show it only once the camera is inside, so its outer wall never
+    // blacks out the opened cube and corridor lights during the approach.
+    if(hallway)hallway.visible=camera.position.z<HALL_ENTRANCE&&camera.position.z>-17.5;
     if(finish)finish.uniforms.fade.value=fade;
     // Scroll speed adds a slight banking roll and lens split; both settle to zero at rest.
     camera.rotateZ(THREE.MathUtils.clamp(smoothVelocity*.0009,-.02,.02));
     for(let i=0;i<routePackets.length;i++){const z=8-((time*.55+i*1.35)%24);routePackets[i].position.set(-.45+Math.sin(z*.15)*.08,-1.46,z);}
     if(ionDrive)ionDrive.rotation.x=time*.35;
-    for(let i=0;i<corridorLights.length;i++)corridorLights[i].intensity=3+Math.sin(time*1.3+i*2)*.7;
+    // Corridor lights stay in the scene (switched off, not removed) so the light count never changes and no shader recompiles mid-scroll.
+    for(let i=0;i<corridorLights.length;i++)corridorLights[i].intensity=corridor.visible?3+Math.sin(time*1.3+i*2)*.7:0;
     dieLight.position.set(core.position.x,.1+core.position.y,0);dieLight.intensity=.9+opening*.8;
     if(reflection)reflection.visible=!narrow&&travel<.1;
     scene.environmentIntensity=.7-travel*.34+(gallery?smooth(3.6,4.2,U)*.3:0);
