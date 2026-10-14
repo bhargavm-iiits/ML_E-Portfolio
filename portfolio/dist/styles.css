@@ -62,6 +62,17 @@ a:hover .roll-inner>span:first-child,button:hover .roll-inner>span:first-child,a
 .ld.ld-waiting .ld-eyebrow{animation:ldBlink 1.2s ease-in-out infinite}
 @keyframes ldBlink{50%{opacity:.45}}
 @media (prefers-reduced-motion:reduce){.js .ld{transition:opacity .2s}.ld-float,.ld-slab .chip,.ld-slab .trace{animation:none}.ld-slab{transition:opacity .2s;transform:none}.ld.ld-exit .ld-center{transform:none}}
+/* Vertical project timeline between the copy and the 3D card */
+.g-rail{display:none}
+.journey.is-cinematic .g-rail{display:block;position:absolute;left:50%;top:calc(var(--header) + 9vh);bottom:170px;width:1px;background:linear-gradient(var(--line-2),var(--line-2)) center/1px 100% no-repeat;opacity:0;transition:opacity .6s var(--ease);--fill:0}
+.journey.is-cinematic .g-rail.is-on{opacity:1}
+.g-rail-fill{position:absolute;left:0;top:0;width:1px;height:100%;background:linear-gradient(var(--cyan),var(--lime));transform-origin:top;transform:scaleY(var(--fill));box-shadow:0 0 10px #c2ed7166}
+.g-rail i{position:absolute;left:0;top:calc(var(--at) * 100%);width:9px;height:9px;translate:-50% -50%;border:1px solid var(--line-2);border-radius:50%;background:var(--bg);transition:border-color .4s,background .4s,box-shadow .4s,scale .4s var(--ease)}
+.g-rail i.is-done{border-color:var(--cyan);background:#80d8cb55}
+.g-rail i.is-active{border-color:var(--lime);background:var(--lime);box-shadow:0 0 0 4px #c2ed7122,0 0 16px #c2ed71aa;scale:1.25}
+.g-rail b{position:absolute;left:14px;top:50%;translate:0 -50%;font-size:9px;font-weight:400;letter-spacing:.12em;color:var(--dim);opacity:0;transition:opacity .4s}
+.g-rail i.is-active b{opacity:1;color:var(--lime)}
+@media (max-width:760px){.journey.is-cinematic .g-rail{display:none}}
 /* Title sheen after the hero letters land */
 .hero-title.sheen{background:linear-gradient(100deg,var(--text) 0 38%,#ffffff 46%,var(--lime) 50%,#ffffff 54%,var(--text) 62% 100%);background-size:260% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 1.8s var(--ease-io) forwards}
 @keyframes sheen{to{background-position:0 0}}
