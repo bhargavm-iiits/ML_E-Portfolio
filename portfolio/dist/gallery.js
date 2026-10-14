@@ -119,8 +119,8 @@ export function makeGallery({projects,flows,artwork,materials,renderer}){
   // faint floor grid under the gallery
   const grid=new THREE.GridHelper(span+20,Math.round((span+20)/1.2),0x1d3a35,0x14231f);grid.position.set(0,-1.75,GALLERY_Z0-span/2+12);grid.material.transparent=true;grid.material.opacity=.55;root.add(grid);
 
-  // Project transitions: the card you are leaving shatters into glass shards.
-  // Everything is driven by scroll position, so scrolling back reassembles it.
+  // Project transitions: the card you are leaving shatters into glass shards while light rings swirl
+  // around the camera path. Everything is driven by scroll position, so scrolling back reassembles it.
   const SHARDS=150,GLINTS=36;
   const shardGeo=new THREE.BufferGeometry().setAttribute('position',new THREE.Float32BufferAttribute([-.5,-.42,0,.55,-.3,0,-.05,.58,0, -.5,-.42,-.012,-.05,.58,-.012,.55,-.3,-.012],3));shardGeo.computeVertexNormals();
   const shardMat=new THREE.MeshPhysicalMaterial({color:0xa8e6dc,metalness:.1,roughness:.03,clearcoat:1,clearcoatRoughness:.02,transparent:true,opacity:.34,envMapIntensity:1.2,side:THREE.DoubleSide,depthWrite:false});
@@ -130,11 +130,13 @@ export function makeGallery({projects,flows,artwork,materials,renderer}){
   const pieces=Array.from({length:SHARDS+GLINTS},(_,k)=>{const glint=k>=SHARDS;
     const o=new THREE.Vector3(rand(-1.3,1.3),rand(-.8,.8),.04);
     return {o,glint,v:new THREE.Vector3(o.x*rand(.5,1.4)+rand(-.6,.6),o.y*rand(.5,1.4)+rand(-.4,.6),rand(1.2,3.6)),axis:new THREE.Vector3(rand(-1,1),rand(-1,1),rand(-1,1)).normalize(),spin:rand(2,7),size:glint?rand(.018,.04):rand(.04,.13),delay:rand(0,.12)};});
+  const rings=new THREE.Group();rings.visible=false;root.add(rings);
+  for(let k=0;k<3;k++){const r=new THREE.Mesh(new THREE.TorusGeometry(1,k===1?.006:.01,6,160,Math.PI*(1.3+k*.25)),new THREE.MeshBasicMaterial({color:glow(k===1?CYAN:LIME,2.4),transparent:true,depthWrite:false}));r.userData.k=k;rings.add(r);}
   const tm=new THREE.Matrix4(),tq=new THREE.Quaternion(),tv=new THREE.Vector3(),ts=new THREE.Vector3();
   function transition(raw,time){
     // The card holds while its copy is on screen, then bursts as the copy fades and the camera moves on.
     const k=Math.floor(raw),f=raw-k,live=k>=0&&k<n-1&&f>.43&&f<.97,b=Math.min(1,Math.max(0,(f-.43)/.54));
-    shards.visible=glints.visible=live;
+    shards.visible=glints.visible=rings.visible=live;
     panels.forEach((pn,i)=>{pn.shatter=i===k&&k<n-1?sm(.45,.62,f):i<k?1:0;});
     if(!live)return;
     const pn=panels[k];pn.tilt.updateWorldMatrix(true,false);
@@ -146,6 +148,10 @@ export function makeGallery({projects,flows,artwork,materials,renderer}){
       if(p.glint)glints.setMatrixAt(gi++,tm);else shards.setMatrixAt(si++,tm);
     }
     shards.instanceMatrix.needsUpdate=glints.instanceMatrix.needsUpdate=true;
+    // rings sit halfway to the next card and open up as the camera passes through them
+    const pa=panels[k].group.position,pb=panels[k+1].group.position,o=sm(.45,.62,f)*(1-sm(.92,.98,f));
+    rings.position.set(0,.35,(pa.z+pb.z)/2+1.5);
+    rings.children.forEach(r=>{const j=r.userData.k;r.scale.setScalar(1.3+j*.45+f*1.2);r.rotation.z=(j%2?-1:1)*(f*5+j*1.7)+time*.15;r.material.opacity=o*(.75-j*.15);});
   }
 
   // warp field: streaking circuit lines past the last panel
