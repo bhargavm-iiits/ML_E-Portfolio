@@ -10,6 +10,7 @@ import { OutputPass } from './vendor/addons/postprocessing/OutputPass.js';
 import { SMAAPass } from './vendor/addons/postprocessing/SMAAPass.js';
 import { ShaderPass } from './vendor/addons/postprocessing/ShaderPass.js';
 import { makeHardware } from './hardware.js';
+import { makeChip } from './chip.js';
 import { makeGallery, GALLERY_Z0, GALLERY_GAP } from './gallery.js';
 
 const clamp=x=>Math.max(0,Math.min(1,x));
@@ -135,8 +136,8 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     const output=new THREE.Group();output.position.set(1.95,-.7,-8.3);output.rotation.y=-.9;output.scale.setScalar(.7);corridor.add(output);block(output,1.3,1.35,.075,materials.dark);label(output,'REVIEW',0,.3,.044,.9,.2,'#f1c389');label(output,'EXCEPTION',0,0,.044,.9,.14,'#f1c389');
   }
   const routePackets=[];if(!compact)for(let i=0;i<22;i++){const mesh=new THREE.Mesh(new THREE.BoxGeometry(.06,.06,.12),i%4===0?materials.lime:materials.cyan);corridor.add(mesh);routePackets.push(mesh);}
-  // Corridor destination: a clean aperture portal echoing the cube's AI chip.
-  const portal=new THREE.Group(),portalSpin=new THREE.Group(),portalCounter=new THREE.Group();
+  // Corridor destination: an aperture portal around a realistic AI chip.
+  const portal=new THREE.Group(),portalSpin=new THREE.Group(),portalCounter=new THREE.Group();let chip=null;
   if(!compact){
     portal.position.set(0,.5,-15);portal.add(portalSpin,portalCounter);corridor.add(portal);
     const glow=(c,k)=>new THREE.MeshBasicMaterial({color:new THREE.Color(c).multiplyScalar(k)});
@@ -148,12 +149,7 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     portalCounter.add(new THREE.LineSegments(tg,new THREE.LineBasicMaterial({color:0x80d8cb,transparent:true,opacity:.55})));
     for(const [r,start,len,mat] of [[1.06,.2,1.5,arcMat],[1.06,.2+Math.PI,1.5,arcMat],[.94,1.1,.9,ringMat],[.94,1.1+Math.PI,.9,ringMat]]){const m=new THREE.Mesh(new THREE.TorusGeometry(r,.014,8,96,len),mat);m.rotation.z=start;portalSpin.add(m);}
     const disc=new THREE.Mesh(new THREE.CircleGeometry(.86,96),new THREE.MeshBasicMaterial({color:0x08120f,transparent:true,opacity:.6,depthWrite:false}));disc.position.z=-.01;portal.add(disc);
-    const chip=new THREE.Group();portal.add(chip);
-    chip.add(new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.PlaneGeometry(.52,.52)),new THREE.LineBasicMaterial({color:new THREE.Color(0xc2ed71).multiplyScalar(2)})));
-    chip.add(new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.PlaneGeometry(.34,.34)),new THREE.LineBasicMaterial({color:0x80d8cb,transparent:true,opacity:.7})));
-    const pins=[];for(const k of [-1,1])for(let i=-2;i<=2;i++){const o=i*.08;pins.push(k*.26,o,0,k*.36,o,0,o,k*.26,0,o,k*.36,0);}
-    const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.Float32BufferAttribute(pins,3));
-    chip.add(new THREE.LineSegments(pg,new THREE.LineBasicMaterial({color:0x80d8cb,transparent:true,opacity:.6})));
+    chip=makeChip(renderer);chip.root.position.z=.08;chip.root.scale.setScalar(1.25);portal.add(chip.root);
   }
   const corridorLights=[];if(!compact)for(const [z,c] of [[2,0x80d8cb],[-5,0xc2ed71],[-12,0x80d8cb]]){const l=new THREE.PointLight(c,0,9,1.6);l.position.set(0,1.4,z);scene.add(l);corridorLights.push(l);}
 
@@ -299,6 +295,7 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     camera.rotateZ(THREE.MathUtils.clamp(smoothVelocity*.0009,-.02,.02));
     for(let i=0;i<routePackets.length;i++){const z=8-((time*.55+i*1.35)%24);routePackets[i].position.set(-.45+Math.sin(z*.15)*.08,-1.46,z);}
     portalSpin.rotation.z=time*.22;portalCounter.rotation.z=-time*.06;
+    if(chip){chip.update(time);chip.light.intensity=corridor.visible?7:0;}
     // Corridor lights stay in the scene (switched off, not removed) so the light count never changes and no shader recompiles mid-scroll.
     for(let i=0;i<corridorLights.length;i++)corridorLights[i].intensity=corridor.visible?3+Math.sin(time*1.3+i*2)*.7:0;
     dieLight.position.set(core.position.x,.1+core.position.y,0);dieLight.intensity=.9+opening*.8;
