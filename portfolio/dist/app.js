@@ -192,9 +192,9 @@ $$('main>section[id]').forEach(s=>sectionObserver.observe(s));sectionObserver.ob
 
 /* ---------- Motion system ---------- */
 function intro(){
-  // Readiness: the scene's first frame and fonts. Scene textures get a short grace period, never an open-ended wait.
+  // Readiness: the scene's first frame and fonts. Textures and GPU warm-up get a short grace period, never an open-ended wait.
   Promise.all([scene.firstFrame,document.fonts?.ready??Promise.resolve()])
-    .then(()=>Promise.race([scene.ready,new Promise(r=>setTimeout(r,1200))]))
+    .then(()=>Promise.race([scene.prepared,new Promise(r=>setTimeout(r,1500))]))
     .then(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))))
     .then(resolvePageReady);
 }

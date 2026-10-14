@@ -37,7 +37,7 @@ export const JOURNEY={T:13,G0:4.2};
 export const DECK_LABELS=['INGEST','PARSE','RETRIEVE','REASON','VERIFY','REVIEW'];
 
 export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{},onProgress=()=>{},onHover=()=>{},onPanelHover=()=>{},content=null}={}){
-  const noop={update(){},setPaused(){},setReduced(){},setVelocity(){},setLoadingPose(){},finishLoading(){},projectCore(){return null;},dispose(){},ready:Promise.resolve(),firstFrame:Promise.resolve()};
+  const noop={update(){},setPaused(){},setReduced(){},setVelocity(){},setLoadingPose(){},finishLoading(){},projectCore(){return null;},dispose(){},ready:Promise.resolve(),firstFrame:Promise.resolve(),prepared:Promise.resolve()};
   let renderer;
   try{renderer=new THREE.WebGLRenderer({canvas,antialias:compact,powerPreference:'high-performance',stencil:false});}catch(e){onFailure(e);return noop;}
   const BG=0x0d1312;
@@ -312,6 +312,29 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     const settling=hardware.decks.some(d=>d.hover>.001&&d.hover<.999)||Math.abs(smoothVelocity)>.05;
     if(animate||dirty||settling||before!==progress){render(dt);adapt(dt);}
   }
+  // Compile every GPU program and upload every texture in the background, hidden corridor and gallery included,
+  // so scrolling past the landing cube never stalls on first use. Re-run when the corridor models arrive.
+  let warming=Promise.resolve();
+  function warm(){
+    warming=warming.then(()=>{
+      if(disposed||compact)return;
+      const textures=new Set();
+      scene.traverse(o=>{for(const m of o.material?[].concat(o.material):[])for(const v of Object.values(m))if(v?.isTexture&&v.image)textures.add(v);});
+      for(const t of textures)renderer.initTexture(t);
+      return renderer.compileAsync(scene,camera).then(()=>{
+        if(disposed)return;
+        // One offscreen draw with everything shown also builds the shadow and depth variants that compile() skips.
+        const hidden=[];scene.traverse(o=>{if(!o.visible){hidden.push(o);o.visible=true;}});
+        const target=new THREE.WebGLRenderTarget(4,4),spare=new THREE.WebGLRenderTarget(4,4),previous=renderer.getRenderTarget();
+        renderer.setRenderTarget(target);renderer.render(scene,camera);gtao?.render(renderer,spare,target);renderer.setRenderTarget(previous);
+        for(const o of hidden)o.visible=false;
+        target.dispose();spare.dispose();dirty=true;
+      });
+    }).catch(()=>{});
+    return warming;
+  }
+  const prepared=Promise.all([firstFrame,ready]).then(warm);
+  modelsReady.then(warm);
   const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;},{rootMargin:'80px'});observer.observe(canvas);
   const onPointer=e=>{
     if(e.pointerType!=='mouse'||reduced)return;
@@ -323,7 +346,7 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
   const onLost=e=>{e.preventDefault();cancelAnimationFrame(raf);onFailure(new Error('WebGL context lost'));};
   window.addEventListener('resize',resize);window.addEventListener('pointermove',onPointer,{passive:true});document.addEventListener('pointerleave',onLeave);canvas.addEventListener('webglcontextlost',onLost);resize();raf=requestAnimationFrame(frame);
   return {
-    ready,firstFrame,camera,
+    ready,firstFrame,prepared,camera,
     // The loader is opaque, so loading blocks hover and scroll travel and pauses idle motion until the handoff.
     setLoadingPose(){loading=true;dirty=true;},
     finishLoading(){loading=false;dirty=true;},
