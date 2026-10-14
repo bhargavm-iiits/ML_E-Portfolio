@@ -2,7 +2,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 const root = path.resolve('dist');
-const mime = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.pdf':'application/pdf','.jpg':'image/jpeg','.png':'image/png','.json':'application/json','.txt':'text/plain'};
+const mime = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.pdf':'application/pdf','.jpg':'image/jpeg','.png':'image/png','.json':'application/json','.txt':'text/plain','.glb':'model/gltf-binary','.woff2':'font/woff2','.hdr':'application/octet-stream','.map':'application/json'};
 http.createServer((req,res)=>{
   let filename;
   try { filename=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname)); } catch {res.writeHead(400).end();return;}
