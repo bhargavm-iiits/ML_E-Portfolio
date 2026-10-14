@@ -6,6 +6,6 @@
   "scripts": {
     "dev": "node serve.mjs",
     "start": "node serve.mjs",
-    "check": "node --check dist/app.js && node --check dist/scene.js && node --check dist/hardware.js && node --check dist/data.js && node --check dist/art.js && node --check serve.mjs"
+    "check": "node --check dist/app.js && node --check dist/scene.js && node --check dist/hardware.js && node --check dist/gallery.js && node --check dist/loader.js && node --check dist/loader-parts.js && node --check dist/data.js && node --check dist/art.js && node --check serve.mjs"
   }
 }
