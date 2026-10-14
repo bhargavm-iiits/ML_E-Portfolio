@@ -1,0 +1,7 @@
+.git
+reference-analysis
+scripts
+verification
+*.zip
+*.tar.gz
+MASTER PROMPT.md
