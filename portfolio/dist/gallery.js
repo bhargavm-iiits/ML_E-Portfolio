@@ -94,7 +94,7 @@ export function makeGallery({projects,flows,artwork,materials,renderer}){
     const side=i%2===0?1:-1;
     const group=new THREE.Group();group.position.set(side*1.32,.25,GALLERY_Z0-i*GALLERY_GAP);group.rotation.y=-side*.32;root.add(group);
     const tilt=new THREE.Group();group.add(tilt);
-    const slab=new THREE.Mesh(slabGeo,glass);slab.userData.panel=i;tilt.add(slab);
+    const slab=new THREE.Mesh(slabGeo,glass.clone());slab.userData.panel=i;tilt.add(slab);
     const canvas=document.createElement('canvas');canvas.width=1280;canvas.height=806;
     const tex=new THREE.CanvasTexture(canvas);tex.colorSpace=THREE.SRGBColorSpace;tex.anisotropy=renderer.capabilities.getMaxAnisotropy();
     // The face is revealed top-down by a world-space clipping plane, led by a glowing scan line.
@@ -110,7 +110,7 @@ export function makeGallery({projects,flows,artwork,materials,renderer}){
     draw(null);
     const img=new Image();img.onload=()=>draw(img);img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(artwork(p.art));
     document.fonts?.ready.then(()=>draw(img.complete&&img.naturalWidth?img:null));
-    panels.push({group,tilt,slab,face,frame,holo,side,hover:0,clip,scan,scanGlow,reveal:0});
+    panels.push({group,tilt,slab,face,frame,holo,side,hover:0,clip,scan,scanGlow,reveal:0,shatter:0});
   });
   // drifting dust across the whole gallery
   const count=900,pos=new Float32Array(count*3);const span=n*GALLERY_GAP+30;
@@ -145,11 +145,11 @@ export function makeGallery({projects,flows,artwork,materials,renderer}){
       const ly=(th-pn.group.position.y)/s,on=r>.002&&r<.995;
       pn.scan.visible=pn.scanGlow.visible=on;pn.scan.position.y=ly;pn.scanGlow.position.y=ly+.1;
       pn.scan.material.opacity=on?Math.min(1,Math.sin(r*Math.PI)*2):0;
-      pn.slab.material.opacity=.55;
+      const keep=1-(pn.shatter||0);pn.slab.material.opacity=.55*keep;pn.slab.visible=pn.face.visible=pn.frame.visible=keep>.01;pn.face.material.opacity=keep;pn.frame.material.opacity*=keep;
       const core=pn.holo.userData.core;core.rotation.y=time*.5+i;core.position.y=.05+Math.sin(time*1.1+i)*.06;
       if(core.userData.bars)core.userData.bars.forEach((b,k)=>{b.scale.y=.25+Math.abs(Math.sin(time*2.2+k*.6))*.9;});
       if(core.userData.spin)core.userData.spin.rotation.x=time*.8;
-      pn.holo.scale.setScalar(.62*(1+pn.hover*.1+near*.06));
+      pn.holo.scale.setScalar(.62*(1+pn.hover*.1+near*.06)*keep);pn.holo.visible=keep>.01;
       pn.group.children.forEach(c=>{if(c.userData.float!==undefined){c.position.y+=Math.sin(time*.8+c.userData.float)*.0015;c.rotation.set(time*.3+c.userData.float,time*.2,0);}});
     });
     dust.rotation.z=time*.01;
