@@ -25,7 +25,53 @@
   "code": {
     "name": "Three.js 0.180.0 addon modules",
     "license": "MIT",
-    "source": "https://github.com/mrdoob/three.js/tree/r180/examples/jsm"
+    "source": "https://github.com/mrdoob/three.js/tree/r180/examples/jsm",
+    "note": "Additional addons vendored from the three@0.180.0 npm package: GLTFLoader, GTAOPass, SMAAPass, ShaderPass, RoomEnvironment and their dependencies."
   },
-  "custom_geometry": "Modular AI hardware, circuits, fans and portal corridor authored for this portfolio; reference videos used only for visual analysis."
+  "custom_geometry": "Modular AI hardware, circuits, fans and portal corridor authored for this portfolio; reference videos used only for visual analysis.",
+  "models": [
+    {
+      "name": "Space Ship Hallway",
+      "creator": "yeeyeeman",
+      "source": "https://sketchfab.com/3d-models/space-ship-hallway-e97dce00ae5549a8a3795e06bc2cfc96",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "https://raw.githubusercontent.com/mrdoob/three.js/r180/examples/models/gltf/space_ship_hallway.glb",
+      "file": "assets/models/space_ship_hallway.glb",
+      "sha256": "051c58dea01930b04d9d23d15f6a9a6a0628358d17954feb47dfa06e075f3bfe",
+      "changes": "Materials replaced at runtime with portfolio palette (graphite panels, cyan strips, softened ceiling light); scaled 0.75 and positioned as the verification corridor."
+    },
+    {
+      "name": "Primary Ion Drive",
+      "creator": "indierocktopus",
+      "source": "https://sketchfab.com/models/d3f50a66fee74c6588dd9bc92f7fe7b3",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download": "https://raw.githubusercontent.com/mrdoob/three.js/r180/examples/models/gltf/PrimaryIonDrive.glb",
+      "file": "assets/models/PrimaryIonDrive.glb",
+      "sha256": "4da2bc76db5a1f639866f05219426c9fde0ece3239c3cb054b5675a8dc1cde21",
+      "changes": "Recoloured to lime/cyan hologram materials at runtime; placed at the end of the corridor as a decorative destination."
+    }
+  ],
+  "libraries": [
+    {
+      "name": "GSAP 3.15.0 (gsap, ScrollTrigger, SplitText, CustomEase)",
+      "license": "GSAP Standard No-Charge License",
+      "license_url": "https://gsap.com/standard-license",
+      "source": "https://registry.npmjs.org/gsap/-/gsap-3.15.0.tgz",
+      "files": "vendor/gsap/"
+    },
+    {
+      "name": "Lenis 1.3.26",
+      "license": "MIT",
+      "source": "https://registry.npmjs.org/lenis/-/lenis-1.3.26.tgz",
+      "files": "vendor/lenis/"
+    },
+    {
+      "name": "Geist / Geist Mono (Fontsource 5.3.0)",
+      "license": "SIL Open Font License 1.1",
+      "source": "https://registry.npmjs.org/@fontsource/geist-sans/-/geist-sans-5.3.0.tgz",
+      "files": "vendor/fonts/"
+    }
+  ]
 }

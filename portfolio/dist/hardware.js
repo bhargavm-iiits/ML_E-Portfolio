@@ -9,7 +9,7 @@ function seeded(seed){return ()=>{seed=(seed*1664525+1013904223)>>>0;return seed
 export function makeHardware(materials){
   const {metal,dark,glass,cyan,softCyan,lime,silver,board}=materials;
   const root=new THREE.Group(),decks=[],shells=[],faces=[],fans=[],packets=[];
-  function block(parent,w,h,d,material,x=0,y=0,z=0,r=.018){const mesh=new THREE.Mesh(geometry(w,h,d,r),material);mesh.position.set(x,y,z);mesh.castShadow=material!==glass&&material!==cyan&&material!==softCyan;mesh.receiveShadow=true;parent.add(mesh);return mesh;}
+  function block(parent,w,h,d,material,x=0,y=0,z=0,r=.018){const mesh=new THREE.Mesh(geometry(w,h,d,r),material);mesh.position.set(x,y,z);mesh.castShadow=material!==glass&&!(material.emissive&&material.emissive.getHex());mesh.receiveShadow=true;parent.add(mesh);return mesh;}
   function instance(parent,poses,material){const mesh=new THREE.InstancedMesh(geometry(1,1,1,.035),material,poses.length);const matrix=new THREE.Matrix4(),position=new THREE.Vector3(),scale=new THREE.Vector3(),rotation=new THREE.Quaternion();for(let i=0;i<poses.length;i++){const [x,y,z,w,h,d]=poses[i];position.set(x,y,z);scale.set(w,h,d);matrix.compose(position,rotation,scale);mesh.setMatrixAt(i,matrix);}mesh.castShadow=true;mesh.receiveShadow=true;parent.add(mesh);return mesh;}
   function label(parent,text,x,y,z,w=.56,h=.4,color='#ccf3f1'){
     const c=document.createElement('canvas');c.width=512;c.height=256;const ctx=c.getContext('2d');ctx.fillStyle=color;ctx.textAlign='center';ctx.textBaseline='middle';ctx.font=`600 ${text.length>3?48:170}px Arial`;ctx.fillText(text,256,136);const tex=new THREE.CanvasTexture(c);tex.colorSpace=THREE.SRGBColorSpace;const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:tex,transparent:true,depthWrite:false}));mesh.position.set(x,y,z);parent.add(mesh);return mesh;
@@ -35,11 +35,11 @@ export function makeHardware(materials){
   block(root,3.12,.13,3.12,dark,0,-1.48,0,.045);
   const ys=[-1.37,-.7,-.46,.46,.7,1.37];
   for(let l=0;l<ys.length;l++){
-    const group=new THREE.Group();group.position.y=ys[l];root.add(group);decks.push({group,baseY:ys[l]});
+    const group=new THREE.Group();group.position.y=ys[l];root.add(group);const edge=cyan.clone();decks.push({group,baseY:ys[l],edge,index:l});
     block(group,3.02,.11,3.02,metal,0,0,0,.035);
     block(group,2.9,.025,2.9,board,0,.067,0,.015);
-    block(group,2.84,.012,.022,cyan,0,-.036,1.516,.002);block(group,2.84,.012,.022,cyan,0,-.036,-1.516,.002);
-    block(group,.022,.012,2.84,cyan,1.516,-.036,0,.002);block(group,.022,.012,2.84,cyan,-1.516,-.036,0,.002);
+    block(group,2.84,.012,.022,edge,0,-.036,1.516,.002);block(group,2.84,.012,.022,edge,0,-.036,-1.516,.002);
+    block(group,.022,.012,2.84,edge,1.516,-.036,0,.002);block(group,.022,.012,2.84,edge,-1.516,-.036,0,.002);
     const rand=seeded(200+l*71),chips=[],pins=[];
     for(let row=0;row<5;row++)for(let col=0;col<7;col++){
       const x=-1.25+col*.4,z=-1.17+row*.56;if(Math.abs(x)<.65&&Math.abs(z)<.65)continue;

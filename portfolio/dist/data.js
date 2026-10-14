@@ -14,3 +14,14 @@ export const roles = {
   ml:{description:'Computer vision and speech workflows with preprocessing, training and evaluation. I build across image classification, Vision Transformers and retrieval-augmented voice systems.',skills:['PyTorch','TensorFlow','Keras','Vision Transformers','OpenCV','Scikit-learn','Whisper','ChromaDB','ROC-AUC / F1','Augmentation'],evidence:'Explore OpthaMiss, Plant Disease Detection and Vox-Align.',resume:'Resume_DS.pdf'},
   xr:{description:'Applications that connect interfaces, services and space. From React and FastAPI products to offline AR guidance and VR video playback, I focus on the complete interaction.',skills:['React','TypeScript','Unity','C#','AR Foundation','ARCore','A* pathfinding','Blender','Unreal Engine','FastAPI'],evidence:'Explore Alipiri AR Navigation, StickerMe and internship experience.',resume:'Resume_App.pdf'}
 };
+// Stage flows shown on project cards and dialogs. Labels summarise the facts above; 'gate' marks an explicit check or delivery step.
+export const flows = {
+  fixproof:{stages:[['Prepare','in'],['Baseline','in'],['Retrieve · BM25','core'],['Propose · Gemini','core'],['Gate · 9 checks','gate'],['Verify · Docker','gate'],['Select','gate']],branch:'Test-file edits rejected'},
+  claimbridge:{stages:[['PDF pages','in'],['Reconcile','core'],['Retrieve · BM25','core'],['Draft · Pydantic','core'],['Citation IDs','gate'],['Human sign-off','gate']],branch:'Missing evidence → escalate'},
+  excel:{stages:[['Formulas','in'],['Pratt parser','core'],['Dependency graph','core'],['Topological order','core'],['66 functions','gate'],['Versioned API','gate']],branch:'Cycle detected → blocked'},
+  optha:{stages:[['Eye image','in'],['Glare / border','core'],['CLAHE','core'],['ViT · unfreeze','core'],['ROC-AUC · F1','gate'],['React / FastAPI','gate']],branch:''},
+  vox:{stages:[['Speech','in'],['Whisper','core'],['ChromaDB context','core'],['Gemini','core'],['7 emotion classes','gate'],['Async synthesis','gate']],branch:'API error → fallback'},
+  ar:{stages:[['GPS + VIO','in'],['Kalman filter','core'],['GeoJSON chain','core'],['A* routing','core'],['HUD · 7.29 km','gate']],branch:'1.17 km gap labeled interpolated'},
+  sticker:{stages:[['Portrait','in'],['Durable job','core'],['SSE progress','core'],['Saved revisions','core'],['PNG / ZIP','gate']],branch:'Interrupted → lease recovery'},
+  plant:{stages:[['Leaf image','in'],['Segment','core'],['Contrast / denoise','core'],['Gabor features','core'],['Keras model','core'],['Ranked predictions','gate']],branch:''}
+};
