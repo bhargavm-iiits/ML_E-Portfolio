@@ -96,19 +96,7 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
   const hardware=makeHardware(materials),core=hardware.root;scene.add(core);
   canvas.dataset.coreId=core.uuid;
   const {block,label,mergedRoutes}=hardware;
-  // The loader animates this exact landing object. It owns no second model, camera or WebGL context.
-  const bootFX=new THREE.Group();core.add(bootFX);bootFX.visible=false;
-  const pulseMat=new THREE.MeshBasicMaterial({color:new THREE.Color(0x80d8cb).multiplyScalar(2),transparent:true,opacity:0,depthWrite:false});
-  const axis=new THREE.Mesh(new THREE.CylinderGeometry(.009,.009,5.5,8),pulseMat);bootFX.add(axis);
-  const bootLoops=Array.from({length:3},()=>{const m=new THREE.Mesh(new THREE.TorusGeometry(.28,.006,5,48),pulseMat);m.rotation.x=Math.PI/2;bootFX.add(m);return m;});
-  const routeMat=new THREE.MeshBasicMaterial({color:new THREE.Color(0xc2ed71).multiplyScalar(1.8),transparent:true,opacity:0,depthWrite:false});
-  const bootRoutes=[];
-  for(const side of [-1,1])for(let n=0;n<5;n++){
-    const z=(n-2)*.14,y=(n-2)*.07;
-    const points=[[side*.3,y,z],[side*1.7,y,z],[side*2.1,y+.35,z],[side*3.4,y+.35,z],[side*3.8,y+.6,z]];
-    const path=new THREE.CurvePath();for(let i=1;i<points.length;i++)path.add(new THREE.LineCurve3(new THREE.Vector3(...points[i-1]),new THREE.Vector3(...points[i])));
-    const geo=new THREE.TubeGeometry(path,48,.008,4,false),m=new THREE.Mesh(geo,routeMat);bootFX.add(m);bootRoutes.push(m);
-  }
+  // The loader shows this exact landing object in its landing pose. It owns no second model, camera or WebGL context.
   for(const d of hardware.decks){d.hover=0;d.group.traverse(o=>{o.userData.deck=d.index;});}
 
   // Verification corridor: a licensed hallway model restyled to the portfolio palette, with authored gates and routes inside it.
@@ -202,7 +190,7 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
   }
 
   let progress=0,targetProgress=0,U=0,time=0,last=0,paused=false,visible=true,disposed=false,dirty=true,raf=0,narrow=false;
-  let loadingTime=null;
+  let loading=false;
   let velocity=0,smoothVelocity=0,hoverIndex=-1,pointerInside=false;
   const pointer={x:0,y:0},pointerTarget={x:0,y:0},ndc=new THREE.Vector2(),raycaster=new THREE.Raycaster();
   const target=new THREE.Vector3(),baseCamera=new THREE.Vector3(),flyCamera=new THREE.Vector3(),tmp=new THREE.Vector3();
@@ -213,7 +201,7 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
       raycaster.setFromCamera(ndc,camera);const hit=raycaster.intersectObjects(gallery.panels.map(p=>p.slab),false)[0];
       const next=hit?hit.object.userData.panel:-1;if(next!==hoverPanel){hoverPanel=next;onPanelHover(next);}
     }else if(hoverPanel!==-1){hoverPanel=-1;onPanelHover(-1);}
-    if(compact||reduced||loadingTime!==null||U>1.3||!pointerInside){if(hoverIndex!==-1){hoverIndex=-1;onHover(-1);}return;}
+    if(compact||reduced||loading||U>1.3||!pointerInside){if(hoverIndex!==-1){hoverIndex=-1;onHover(-1);}return;}
     raycaster.setFromCamera(ndc,camera);
     const hit=raycaster.intersectObject(core,true).find(h=>h.object.userData.deck!==undefined);
     const next=hit?hit.object.userData.deck:-1;
@@ -221,9 +209,8 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
   }
   function render(dt=0){
     if(disposed)return;
-    const boot=loadingTime!==null&&!compact,B=loadingTime??10,settle=smooth(8.1,9.5,B);
-    U=reduced||compact||boot?0:progress;
-    const opening=boot?(reduced?0:1-smooth(5.2,7.35,B)):smooth(.25,1.25,U);
+    U=reduced||compact||loading?0:progress;
+    const opening=smooth(.25,1.25,U);
     const align=smooth(1.2,1.8,U);
     const travel=smooth(1.6,2.05,U);
     const forward=smooth(1.9,3.3,U);
@@ -231,8 +218,8 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     const warpT=smooth(JOURNEY.T-1,JOURNEY.T,U);
     const inGallery=gallery&&U>3.5;
     core.visible=U<2.4||compact;corridor.visible=U>1.5&&U<4.3&&!compact;
-    core.position.set(compact||narrow?0:boot?mix(0,2.3,settle):mix(2.3,.3,opening),(compact?0:narrow?-1.1:0)+(boot?opening*.95*(narrow?.78:1):0),0);
-    core.rotation.y=-.36+(boot?0:pointer.x*.07+Math.sin(time*.12)*.035);core.rotation.z=boot?0:pointer.y*.006;
+    core.position.set(compact||narrow?0:mix(2.3,.3,opening),compact?0:narrow?-1.1:0,0);
+    core.rotation.y=-.36+pointer.x*.07+Math.sin(time*.12)*.035;core.rotation.z=pointer.y*.006;
     core.scale.setScalar((narrow&&!compact?.78:1)*(1-travel*.78));
     const floorOffset=narrow&&!compact?-.75*(1-travel):0;floor.position.y=-1.56+floorOffset;seams.position.y=floorOffset;floor.visible=seams.visible=U<3.6;
     for(const d of hardware.decks){
@@ -244,13 +231,8 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     }
     for(const s of hardware.shells){const r=1.51+opening*1.25;s.group.position.set(Math.sin(s.angle)*r,s.y*(1+opening*.45),Math.cos(s.angle)*r);s.group.rotation.y=s.angle+opening*.055;}
     for(const f of hardware.faces){const r=1.51+opening*.32;f.group.position.set(Math.sin(f.angle)*r,0,Math.cos(f.angle)*r);}
-    for(const fan of hardware.fans)fan.rotation.z=boot?0:time*.6;
-    for(const packet of hardware.packets){packet.mesh.position.y=packet.base.y+(boot?0:Math.sin(time*.7+packet.phase)*.05);packet.mesh.rotation.set(boot?0:time*.15,packet.phase,0);}
-    bootFX.visible=boot&&B<7.4&&!reduced;
-    const pulse=smooth(0,.3,B)*(1-smooth(1.3,1.8,B));pulseMat.opacity=pulse;
-    bootLoops.forEach((m,i)=>{m.position.y=-2.4+((B*.8+i/3)%1)*4.8;});
-    const routed=smooth(3.8,4.7,B)*(1-smooth(5.8,7.1,B));routeMat.opacity=routed;
-    bootRoutes.forEach((m,i)=>{m.geometry.setDrawRange(0,Math.floor(smooth(3.8+i*.045,4.8+i*.045,B)*48)*24);});
+    for(const fan of hardware.fans)fan.rotation.z=time*.6;
+    for(const packet of hardware.packets){packet.mesh.position.y=packet.base.y+Math.sin(time*.7+packet.phase)*.05;packet.mesh.rotation.set(time*.15,packet.phase,0);}
     // 1. orbit the core, 2. align to its interior, 3. fly the corridor, 4. pass through the drive, 5. glide between projects, 6. warp out.
     baseCamera.set(compact?6.4:narrow?6.0:6.5,compact?3.5:narrow?3.6:3.9,compact?9.8:narrow?10.8:11.8);
     baseCamera.lerp(tmp.set(0,1.05,9.2),align);
@@ -258,15 +240,6 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     camera.position.copy(baseCamera).lerp(flyCamera,travel);
     target.set(compact?0:narrow?0:mix(.35,0,opening),compact?0:narrow?.95:0,0);
     target.lerp(tmp.set(0,.35,flyCamera.z-10),travel);
-    if(boot&&!reduced){
-      // At 9.5 s both vectors are exactly the existing hero vectors, including portrait framing.
-      const lift=smooth(1.5,3.5,B)*(1-smooth(5.5,7.5,B));
-      const portrait=narrow?Math.max(1,Math.min(1.55,.8/camera.aspect)):1;
-      const startCam=tmp.set(mix(.8,3.2,lift)*portrait,mix(3.0,4.6,lift)*portrait,12.8*portrait);
-      camera.position.lerpVectors(startCam,baseCamera,settle);
-      const heroX=narrow?0:.35,heroY=narrow?.95:0;
-      target.set(mix(0,heroX,settle),mix(narrow?-.1:.5,heroY,settle),0);
-    }
     let fov=compact?37:narrow?43:37,fade=0;
     if(gallery&&U>3.3){
       stopView(0,stopCam,stopLook);
@@ -305,13 +278,13 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     for(let i=0;i<routePackets.length;i++){const z=8-((time*.55+i*1.35)%24);routePackets[i].position.set(-.45+Math.sin(z*.15)*.08,-1.46,z);}
     if(ionDrive)ionDrive.rotation.x=time*.35;
     for(let i=0;i<corridorLights.length;i++)corridorLights[i].intensity=3+Math.sin(time*1.3+i*2)*.7;
-    dieLight.position.set(core.position.x,.1+core.position.y,0);dieLight.intensity=boot?.9+smooth(3.5,4.5,B)*(1-smooth(5.8,7.35,B))*3:.9+opening*.8;
+    dieLight.position.set(core.position.x,.1+core.position.y,0);dieLight.intensity=.9+opening*.8;
     if(reflection)reflection.visible=!narrow&&travel<.1;
     scene.environmentIntensity=.7-travel*.34+(gallery?smooth(3.6,4.2,U)*.3:0);
     if(finish){finish.uniforms.time.value=time;finish.uniforms.aberration.value=.0012+Math.min(.006,Math.abs(smoothVelocity)*.00012);}
     if(composer)composer.render(dt);else renderer.render(scene,camera);
     canvas.dataset.scene='modular-hardware';
-    canvas.dataset.phase=boot?'loading':'landing';canvas.dataset.camera=[camera.position.x,camera.position.y,camera.position.z].map(x=>x.toFixed(4)).join(',');canvas.dataset.core=[core.position.x,core.position.y,core.position.z].map(x=>x.toFixed(4)).join(',');
+    canvas.dataset.phase=loading?'loading':'landing';canvas.dataset.camera=[camera.position.x,camera.position.y,camera.position.z].map(x=>x.toFixed(4)).join(',');canvas.dataset.core=[core.position.x,core.position.y,core.position.z].map(x=>x.toFixed(4)).join(',');
     resolveFirstFrame?.();resolveFirstFrame=null;
     dirty=false;
   }
@@ -325,7 +298,8 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
   function frame(now){
     if(disposed)return;raf=requestAnimationFrame(frame);
     const dt=Math.min(.05,(now-last)/1000||.016);last=now;if(!visible)return;
-    const animate=!paused&&!reduced&&loadingTime===null;
+    // While the loader covers the canvas, only redraw when something changed (e.g. a texture arrived).
+    const animate=!paused&&!reduced&&!loading;
     if(animate)time+=dt;
     const before=progress;
     progress=reduced?0:damp(progress,targetProgress,11,dt);if(Math.abs(targetProgress-progress)<.0005)progress=targetProgress;
@@ -333,7 +307,6 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
     if(animate){pointer.x=damp(pointer.x,pointerTarget.x,4,dt);pointer.y=damp(pointer.y,pointerTarget.y,4,dt);}
     pick();
     const settling=hardware.decks.some(d=>d.hover>.001&&d.hover<.999)||Math.abs(smoothVelocity)>.05;
-    if(loadingTime!==null)adapt(dt);
     if(animate||dirty||settling||before!==progress){render(dt);adapt(dt);}
   }
   const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;},{rootMargin:'80px'});observer.observe(canvas);
@@ -348,8 +321,9 @@ export function createScene(canvas,{reduced=false,compact=false,onFailure=()=>{}
   window.addEventListener('resize',resize);window.addEventListener('pointermove',onPointer,{passive:true});document.addEventListener('pointerleave',onLeave);canvas.addEventListener('webglcontextlost',onLost);resize();raf=requestAnimationFrame(frame);
   return {
     ready,firstFrame,camera,
-    setLoadingPose(seconds){loadingTime=seconds;time=0;pointer.x=pointer.y=pointerTarget.x=pointerTarget.y=0;dirty=true;render();},
-    finishLoading(){loadingTime=null;time=0;dirty=true;render();},
+    // The loader is opaque, so loading blocks hover and scroll travel and pauses idle motion until the handoff.
+    setLoadingPose(){loading=true;dirty=true;},
+    finishLoading(){loading=false;dirty=true;},
     projectCore(){tmp.copy(core.position).project(camera);return {x:(tmp.x+1)/2,y:(1-tmp.y)/2};},
     projectDeck(index){const d=hardware.decks[index];if(!d)return null;tmp.set(0,0,0);d.group.localToWorld(tmp);tmp.project(camera);return {x:(tmp.x+1)/2,y:(1-tmp.y)/2};},
     update(u){targetProgress=Math.max(0,Math.min(JOURNEY.T,u));if(reduced){progress=0;dirty=true;}},
