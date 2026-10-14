@@ -33,7 +33,8 @@ All scripts read the specified user files and write under this workspace. Origin
 ## Motion and 3D assets
 
 - Smooth scrolling uses Lenis 1.3.26; scroll choreography, masked text reveals and filter reflow use GSAP 3.15.0 (ScrollTrigger, SplitText, CustomEase, Flip). Both are vendored in `portfolio/dist/vendor/`, so no CDN is needed.
-- The verification corridor is built inside “Space Ship Hallway” by yeeyeeman (CC BY 4.0, credited in the site footer and in `portfolio/dist/assets/live-3d/credits.json`). It ends at an aperture portal built in code (glowing rings, rotating arcs and an AI-chip centre), so no second model is downloaded.
+- The verification corridor is built inside “Space Ship Hallway” by yeeyeeman (CC BY 4.0, credited in the site footer and in `portfolio/dist/assets/live-3d/credits.json`). It ends at an aperture portal built in code around a realistic AI chip (`chip.js`: green substrate with gold pads and silkscreen, an iridescent silicon die with glowing logic, SMD capacitors), so no second model is downloaded.
+- In Selected Work, each project card holds while its copy is on screen, then shatters into glass shards with lime glints as the copy fades, while light rings open around the camera path to the next card. It is all driven by scroll position, so scrolling back reassembles the card. A vertical timeline with glowing nodes between the copy and the card tracks the active project.
 - `scripts/download_motion_assets.py` re-fetches the libraries, fonts, extra Three.js addons and models from npm and the three.js r180 repository, checking model hashes.
 - Reduced motion turns off smooth scrolling, pinning, text effects, the cursor ring, tilt and the 3D journey. The pause control stops idle 3D motion, the marquee and decorative loops.
 - On slow devices the renderer first turns off ambient occlusion, then lowers pixel density.
