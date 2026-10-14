@@ -1,7 +1,7 @@
 import { projects, roles, flows } from './data.js';
 import { artwork } from './art.js';
 import { createScene, DECK_LABELS, JOURNEY } from './scene.js';
-import { mountLoader } from './loader.js';
+import { mountLandingLoader } from './landing-loader.js';
 
 const $=(s,root=document)=>root.querySelector(s);
 const $$=(s,root=document)=>[...root.querySelectorAll(s)];
@@ -15,17 +15,14 @@ const EXPO=CustomEase?'expo':'power4.out';
 const reducedQuery=matchMedia('(prefers-reduced-motion: reduce)');
 let reduced=reducedQuery.matches,paused=false,lastTrigger=null,lenis=null,velocity=0;
 const header=$('.site-header');
-// The loader mounts first, before the heavier main scene is built; the page stays inert until it exits.
+// Loader and landing share the same scene. Only its HUD is removed at the end.
 const loaderQuery=new URLSearchParams(location.search).get('loader');
 let resolvePageReady;const pageReady=new Promise(r=>{resolvePageReady=r;});
-const pageRegions=[$('main'),$('.site-header'),$('.site-footer')];
+const pageRegions=[$('main'),$('.site-header'),$('.site-footer'),$('.skip')];
 pageRegions.forEach(el=>{el.inert=true;});$('main').setAttribute('aria-busy','true');
 let loaderSeen=false;try{loaderSeen=sessionStorage.getItem('bm-loader-seen')==='1';}catch{}
-const loader=mountLoader($('.ld'),pageReady,{mode:loaderQuery==='replay'?'replay':'normal',seek:loaderQuery==='seek'?Number(new URLSearchParams(location.search).get('t')||0):null,quick:loaderSeen&&!loaderQuery,reduced,onExit:()=>{
-  pageRegions.forEach(el=>{el.inert=false;});$('main').removeAttribute('aria-busy');try{sessionStorage.setItem('bm-loader-seen','1');}catch{}
-  clearInterval(loaderPoll);revealHero();}});
-window.__bmLoader=loader;
-const loaderPoll=setInterval(()=>loader.setTaskProgress('assets',loadProgress),120);
+let loader,loaderPoll,loaderActive=true;
+document.documentElement.classList.add('is-loading');
 
 /* ---------- 3D scenes ---------- */
 const deckTip=$('.deck-tip');let pointerX=0,pointerY=0;
@@ -40,6 +37,13 @@ const scene=createScene($('#scene'),{reduced,content:{projects,flows,artwork},on
   $('.deck-tip-num').textContent=`DECK ${pad(i+1)}`;$('.deck-tip-name').textContent=DECK_LABELS[i];placeTip();deckTip.classList.add('is-on');
 }});
 const contactScene=createScene($('#contact-scene'),{reduced,compact:true,onFailure:()=>{$('.contact-scene').hidden=true;}});
+loader=mountLandingLoader($('.ld'),scene,pageReady,{mode:loaderQuery==='replay'?'replay':'normal',seek:loaderQuery==='seek'?Number(new URLSearchParams(location.search).get('t')||0):null,quick:loaderSeen&&!loaderQuery,reduced,
+  onReveal:()=>revealHero(),onExit:()=>{
+    loaderActive=false;pageRegions.forEach(el=>{el.inert=false;});$('main').removeAttribute('aria-busy');try{sessionStorage.setItem('bm-loader-seen','1');}catch{}
+    clearInterval(loaderPoll);lenis?.start();
+  }});
+window.__bmLoader=loader;
+loaderPoll=setInterval(()=>loader.setTaskProgress('assets',loadProgress),120);
 
 /* ---------- Content ---------- */
 const stageHtml=stages=>stages.map(([label,kind],k)=>`<span class="stage ${kind}" style="--i:${k}"><span aria-hidden="true">${kind==='in'?'›':kind==='gate'?'✓':'·'}</span>${label}</span>${k<stages.length-1?'<span class="stage-arrow" aria-hidden="true">→</span>':''}`).join('');
@@ -192,12 +196,11 @@ $$('main>section[id]').forEach(s=>sectionObserver.observe(s));sectionObserver.ob
 function intro(){
   // Readiness contract: main-scene assets loaded, its first frame rendered, and fonts ready.
   document.fonts?.ready.then(()=>loader.setTaskProgress('interface',1));
-  Promise.all([scene.ready.then(()=>{loader.setTaskProgress('assets',1);}),document.fonts?.ready??Promise.resolve()])
+  Promise.all([scene.ready.then(()=>{loader.setTaskProgress('assets',1);}),scene.firstFrame,document.fonts?.ready??Promise.resolve()])
     .then(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))))
     .then(()=>{loader.setTaskProgress('render',1);resolvePageReady();});
 }
 function revealHero(){
-  scene.playIntro?.();
   if(!hasGsap||reduced)return;
   const split=SplitText.create('.hero-title .line',{type:'chars',charsClass:'char',mask:'lines'});
   const tl=gsap.timeline({defaults:{ease:EXPO}});
@@ -221,6 +224,7 @@ function setupMotion(){
     // Smooth, inertial scrolling that keeps native scroll position and keyboard scrolling.
     if(Lenis){
       lenis=new Lenis({lerp:.085,smoothWheel:true,wheelMultiplier:.95,touchMultiplier:1.1});window.__lenis=lenis;
+      if(loaderActive)lenis.stop();
       lenis.on('scroll',e=>{ScrollTrigger.update();velocity=e.velocity;onScroll(e.scroll);});
       const raf=t=>lenis.raf(t*1000);gsap.ticker.add(raf);gsap.ticker.lagSmoothing(0);
       cleanups.push(()=>{gsap.ticker.remove(raf);lenis.destroy();lenis=null;window.__lenis=null;});
@@ -302,4 +306,4 @@ function setupPointer(){
 }
 
 setupMotion();intro();onScroll();
-addEventListener('pagehide',()=>{scene.dispose();contactScene.dispose();});
+addEventListener('pagehide',()=>{clearInterval(loaderPoll);loader.dispose();scene.dispose();contactScene.dispose();});

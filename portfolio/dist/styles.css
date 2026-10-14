@@ -31,6 +31,13 @@ a:hover .roll-inner>span:first-child,button:hover .roll-inner>span:first-child,a
 .ld{display:none}
 .js .ld{display:block;position:fixed;inset:0;z-index:95;overflow:hidden;background:#03070b;--u:calc(min(100vw,177.78vh)/1280);color:#d7ffff;transition:opacity .45s ease}
 .ld.ld-exit{opacity:0;pointer-events:none}
+.js .ld.ld-shared{background:transparent;color:var(--cyan)}
+.is-loading .site-header,.is-loading .hero-copy,.is-loading .journey-footer,.is-loading .scene-annotation,.is-loading .g-hud,.is-loading .deck-tip{visibility:hidden}
+.is-loading,.is-revealing{overflow:hidden}
+.ld-shared .ld-ring1,.ld-shared .ld-ring2{stroke:var(--cyan);stroke-width:2}
+.ld-shared .ld-ticks line,.ld-shared .ld-sweep{stroke:var(--lime)}
+.ld-shared .ld-panel .o{fill:#0d131299}
+.ld-shared .ld-num,.ld-shared .ld-bar span{color:var(--text)}
 .ld-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .ld-fallback{display:none;position:absolute;left:50%;top:46%;width:min(320px,70vw);translate:-50% -50%}
 .ld.ld-is-fallback .ld-canvas{display:none}.ld.ld-is-fallback .ld-fallback{display:block}
@@ -271,7 +278,7 @@ a:hover .roll-inner>span:first-child,button:hover .roll-inner>span:first-child,a
 
 /* Experience */
 .experience{background:#0f1514;border-block:1px solid var(--line)}.experience>.section-shell{padding-block:110px 120px}
-.timeline{position:relative;padding-left:0}
+.timeline{position:relative;padding-left:0;overflow-x:clip}
 .timeline-rail{position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--line-2)}.timeline-rail span{display:block;width:100%;height:100%;background:var(--lime);transform-origin:top;transform:scaleY(var(--p,0))}
 .timeline-item{display:flex;flex-wrap:wrap;gap:12px 48px;padding:40px 0 40px 36px;border-top:1px solid var(--line)}.timeline-item:last-child{border-bottom:1px solid var(--line)}
 .timeline-date{flex:0 0 220px;font-size:12px;letter-spacing:.1em;color:var(--lime)}.education .timeline-date{color:var(--cyan)}
